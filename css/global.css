@@ -1,0 +1,15 @@
+html,
+body {
+  font-family: Roboto, Arial; /* ärvs till inre containers */
+  background-color: #ff0000; /* Till felsökning, då denna färg skall täckas med övriga komponenter och aldrig synas */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
