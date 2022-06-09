@@ -1,0 +1,6 @@
+/* Globala konstanter, används i andra filer */
+
+:root {
+  --header-height: 100px; /* Höjden på header */
+  --sidebar-width: 150px; /* Bredden på sidomeny */
+}

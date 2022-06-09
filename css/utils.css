@@ -1,0 +1,4 @@
+/* om vi vill göra fler korta classer, kanske man skall bygga såhär */
+.flex {
+  display: flex;
+}
