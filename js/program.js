@@ -1,8 +1,11 @@
+import { loadYear, months } from "./repository.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   main();
 });
 
 function main() {
   console.clear();
-  console.log("Hello World");
+  loadYear();
+  print();
 }
