@@ -3,5 +3,6 @@
 :root {
   --header-height: 100px; /* Höjden på header */
   --sidebar-width: 150px; /* Bredden på sidomeny */
+  --sub-header-height: 50px; /* Höjden sub-header inuti main */
   /* Kanske lägga in färger som konstanter här */
 }

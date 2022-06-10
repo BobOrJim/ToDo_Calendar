@@ -3,6 +3,7 @@ import { Day } from "./models/day.js";
 export var months = [];
 
 export function loadYear() {
+  console.log("running loadYear()");
   if (localStorage.getItem("year") === null) {
     buildYear();
     seedYear();
