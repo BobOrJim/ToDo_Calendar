@@ -1,0 +1,11 @@
+aside {
+  background-color: #04a126;
+  flex-direction: column;
+  border-right: 1px solid #dddddd;
+  min-width: var(--sidebar-width);
+  position: fixed;
+
+  top: calc(var(--header-height));
+  bottom: 0;
+  left: 0;
+}

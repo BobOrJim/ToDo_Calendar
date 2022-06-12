@@ -1,0 +1,13 @@
+header {
+  background-color: #cd6b1a;
+  border-bottom: 1px solid #dddddd;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--header-height);
+  display: flex;
+  /*  align-items: normal;*/
+  /* justify-content: space-between; */
+  z-index: 100;
+}

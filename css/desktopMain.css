@@ -1,0 +1,126 @@
+.days-header {
+  background-color: #cc5353;
+  position: fixed;
+  left: var(--sidebar-width);
+  right: 0;
+  top: var(--header-height);
+  height: var(--sub-header-height);
+  z-index: 100;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  margin-top: calc(var(--header-height) + var(--sub-header-height));
+  margin-left: var(--sidebar-width);
+  background-color: #25888b;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.05); */
+}
+
+.day-card-wrapper {
+  display: grid;
+  column-gap: 26px;
+  row-gap: 78px;
+  justify-items: center;
+  background-color: #04f02c;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.day-card {
+  border: 1px solid black;
+  background-color: #00ff2a;
+  width: 100%;
+  height: 100px;
+  cursor: pointer;
+}
+
+.day-card-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2rem;
+  color: white;
+}
+
+.day-card-idRed {
+  background-color: #ff0000;
+}
+
+.day-card-tasks {
+  text-align: center;
+  margin-top: 0px;
+  font-size: 1.5rem;
+  color: white;
+  border-radius: 50%;
+  background-color: #cc5353;
+}
+
+/*
+.video-card-top {
+  margin-bottom: 8px;
+  position: relative;
+}
+.thumbnail-img {
+  width: 100%;
+}
+.video-time {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 4px 4px 4px; 
+  border-radius: 2px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+}
+
+.video-card-bottom {
+  width: 100%;
+  height: 112px;
+  background-color: #ffffff;
+
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+.profile-img {
+  width: 36px;
+  border-radius: 50%;
+}
+
+.video-card-bottom-right {
+}
+
+.video-info-div {
+  display: inline-block;
+}
+.video-title {
+  margin-top: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+.video-author,
+.video-stats {
+  font-size: 12px;
+  color: rgb(96, 96, 96);
+}
+.check_circle {
+  font-size: 13px;
+  color: rgb(96, 96, 96);
+}
+.video-author {
+  margin-bottom: 4px;
+  display: inline;
+}
+
+*/
