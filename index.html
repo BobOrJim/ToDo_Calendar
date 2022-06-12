@@ -5,14 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-    <link rel="stylesheet" href="./css/global.css" />
-    <link rel="stylesheet" href="./css/utils.css" />
-    <link rel="stylesheet" href="./css/variables.css" />
     <script src="./js/program.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <script src="./js/repository.js" type="module"></script>
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/utils.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <!-- Mobile CSS-->
+    <link rel="stylesheet" media="screen and (max-width: 479px)" href="./css/mobileHeader.css" />
+    <link rel="stylesheet" media="screen and (max-width: 479px)" href="./css/mobileAside.css" />
+    <link rel="stylesheet" media="screen and (max-width: 479px)" href="./css/mobileMain.css" />
+    <!-- Desktop CSS-->
+    <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopHeader.css" />
+    <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopAside.css" />
+    <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopMain.css" />
     <script src="./js/program.js" type="module"></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <p>Vår header</p>
+    </header>
+    <aside>
+      <p>Vår aside</p>
+    </aside>
+    <div class="days-header">
+      <div>Måndag</div>
+      <div>Tisdag</div>
+      <div>Onsdag</div>
+      <div>Torsdag</div>
+      <div>Fredag</div>
+      <div>Lördag</div>
+      <div>Söndag</div>
+    </div>
+    <main>
+      <!--HTML nedan är bara för att testa, tas bort senare.-->
+      <div class="day-card-wrapper">
+        <div class="day-card"><p class="day-card-text">1</p></div>
+        <div class="day-card"><p class="day-card-text">2</p></div>
+        <div class="day-card">
+          <p class="day-card-text">3</p>
+          <p class="day-card-tasks center">2</p>
+        </div>
+        <div class="day-card"><p class="day-card-text">4</p></div>
+        <div class="day-card"><p class="day-card-text">5</p></div>
+        <div class="day-card"><p class="day-card-text">6</p></div>
+        <div class="day-card day-card-idRed"><p class="day-card-text">7</p></div>
+        <div class="day-card"><p class="day-card-text">8</p></div>
+        <div class="day-card"><p class="day-card-text">9</p></div>
+        <div class="day-card"><p class="day-card-text">10</p></div>
+        <div class="day-card">
+          <p class="day-card-text">11</p>
+          <p class="day-card-tasks center">2</p>
+        </div>
+        <div class="day-card">
+          <p class="day-card-text">12</p>
+          <p class="day-card-tasks center">1</p>
+        </div>
+        <div class="day-card"><p class="day-card-text">13</p></div>
+        <div class="day-card day-card-idRed"><p class="day-card-text">14</p></div>
+      </div>
+    </main>
+  </body>
 </html>
