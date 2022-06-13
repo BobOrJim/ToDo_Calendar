@@ -12,14 +12,39 @@
     <link rel="stylesheet" href="./css/utils.css" />
     <link rel="stylesheet" href="./css/variables.css" />
     <!-- Mobile CSS-->
-    <link rel="stylesheet" media="screen and (max-width: 479px)" href="./css/mobileHeader.css" />
-    <link rel="stylesheet" media="screen and (max-width: 479px)" href="./css/mobileAside.css" />
-    <link rel="stylesheet" media="screen and (max-width: 479px)" href="./css/mobileMain.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 479px)"
+      href="./css/mobileHeader.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 479px)"
+      href="./css/mobileAside.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 479px)"
+      href="./css/mobileMain.css"
+    />
     <!-- Desktop CSS-->
-    <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopHeader.css" />
-    <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopAside.css" />
-    <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopMain.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 480px)"
+      href="./css/desktopHeader.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 480px)"
+      href="./css/desktopAside.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 480px)"
+      href="./css/desktopMain.css"
+    />
     <script src="./js/program.js" type="module"></script>
+    <script defer src="./js/aside.js"></script>
   </head>
   <body>
     <header>
@@ -27,7 +52,41 @@
       <p>Vår header</p>
     </header>
     <aside>
-      <p>Vår aside</p>
+      <br />
+      <h2>To Do</h2>
+      <br />
+      <div class="aside-div">
+        <div>
+          <p>Lägg till helgdag</p>
+        </div>
+        <div>          
+          <img
+            src="./img/calendar-plus.png"
+            alt="An example icon"
+            style="width: 24px; height: 24px"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="aside-div">
+        <div>
+          <p>Lägg till aktivitet</p>
+        </div>
+        <div>          
+          <img
+            id="btn"
+            src="./img/calendar-plus.png"
+            alt="An example icon"
+            style="width: 24px; height: 24px"
+          />
+        </div>
+      </div>
+    </div>
+    <form id="form">
+      <input type="text" />
+      <br>
+      <input type="button" value="Lägg till" />
+    </form>
     </aside>
     <div class="days-header">
       <div>Måndag</div>
