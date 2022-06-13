@@ -8,6 +8,7 @@ aside {
   top: calc(var(--header-height));
   bottom: 0;
   left: 0;
+  text-align: center;
 }
 
 aside div {
