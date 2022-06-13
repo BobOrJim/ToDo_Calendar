@@ -17,6 +17,7 @@ aside div {
   padding-left: 0.5rem;
   font-size: 10px;
   color: whitesmoke;
+  margin-left: 0.5rem;
 }
 
 .aside-div {
@@ -29,4 +30,7 @@ aside div {
   padding: 1rem;
   background-color: rgb(228, 87, 87);
   background-image: linear-gradient(to right, rgb(207, 3, 3), brown);
+  -webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.493);
+  -moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.466);
 }
