@@ -1,5 +1,9 @@
-var apiUrl1 = "https://svenskahelgdagar.info/v2/access_token";
-var apiUrl2 = "https://svenskahelgdagar.info/v2/today";
+var apiUrlToken = "https://svenskahelgdagar.info/v2/access_token";
+//var apiUrlToday = "https://svenskahelgdagar.info/v2/today";
+//var apiUrlPrevious = "https://svenskahelgdagar.info/v2/previous";
+//var apiUrlNext = "https://svenskahelgdagar.info/v2/next";
+var apiUrlDate = "https://svenskahelgdagar.info/v2/date/";
+var apiUrlYear = "https://svenskahelgdagar.info/v2//year/2022";
 
 var requestBodyUrl1 = {
   grant_type: "client_credentials",
@@ -15,19 +19,11 @@ var optionPost = {
   body: JSON.stringify(requestBodyUrl1),
 };
 
-/* var a = fetch(apiUrl1, optionPost)
-  .then((res) => res.json)
-  .then((data) => console.log(data)); */
-
-/* const  = async () => { */
 async function asyncGetToken() {
   try {
-    const response = await fetch(apiUrl1, optionPost);
+    const response = await fetch(apiUrlToken, optionPost);
     const data = await response.json();
     // enter you logic when the fetch is successful
-    //console.log(data);
-    /*     const token = data.access_token;
-    console.log(token); */
     console.log(data);
     return data.access_token;
   } catch (error) {
@@ -36,21 +32,16 @@ async function asyncGetToken() {
   }
 }
 
-var token1 = asyncGetToken();
-console.log(token1);
-
-var optionGet = {
-  method: "get",
-  headers: {
-    Authorization: token1,
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-};
-
-const asyncGetToday = async () => {
+async function asyncGetYear() {
   try {
-    const response = await fetch(apiUrl2, optionGet);
+    let response = await fetch(apiUrlYear, {
+      method: "get",
+      headers: {
+        Authorization: `bearer ${await asyncGetToken()}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
     const data = await response.json();
     // enter you logic when the fetch is successful
     console.log(data);
@@ -58,51 +49,49 @@ const asyncGetToday = async () => {
     // enter your logic for when there is an error (ex. error toast)
     console.log(error);
   }
-};
+}
 
-asyncGetToday();
+async function asyncGetDate(date) {
+  try {
+    let response = await fetch(apiUrlDate + date, {
+      method: "get",
+      headers: {
+        Authorization: `bearer ${await asyncGetToken()}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+    //return await response.json();
+    // enter you logic when the fetch is successful
+    /*     
+    var red = data.response.public_sunday;
+    console.log(red);
+    return data.public_sunday; */
+  } catch (error) {
+    // enter your logic for when there is an error (ex. error toast)
+    console.log(error);
+  }
+}
 
-/*res.json {
-    if (res.ok) {
-      console.log("SUCCESS");
-      return res.json;
-    } else {
-      console.log("Not Successful");
-    }
-    console.log(res);
-  } )*/
-/*   .then((data) => console.log(data));
-console.log(a); */
+/* asyncGetYear();
+let today = new Date().toISOString().slice(0, 10);
+console.log(today); */
+var date = "2024-12-25";
+console.log(date);
+var Url = apiUrlDate + date;
+console.log(Url);
 
-/* var b = fetch(apiUrl2, optionGet)
-  .then((res) => {
-    if (res.ok) {
-      console.log("SUCCESS");
-      return res.json;
-    } else {
-      console.log("Not Successful");
-    }
-    console.log(res);
-  })
-  .then((data) => console.log(data));
-console.log(b); */
+async function checkIfRedDay(date) {
+  let dateData = await asyncGetDate(date);
+  let isRed = dateData.response.public_sunday;
+  console.log(isRed);
+  if (isRed) {
+    console.log("Red Day!!!");
+  } else console.log("Go to work!");
+  return isRed;
+}
 
-/* getData();
-
-  async function getData(){
-       const response= await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita%');
-       console.log(response);
-       const data= await response.json();
-       console.log(data);
-       length=data.drinks.length;
-       console.log(data);
-       var temp="";
-       for(i=0;i<length;i++)
-       {
-          temp+="<tr>";
-          temp+="<td>"+data.drinks[i].strDrink+"</td>";
-          temp+="<td>"+data.drinks[i].strInstructions+"</td>";
-       }
-
-    document.getElementById("data").innerHTML=temp;
-     } */
+checkIfRedDay(date);
