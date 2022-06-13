@@ -1,31 +1,67 @@
 import { selectedMonth } from "./main.js";
+// import { months } from "./repository.js";
 
-document.addEventListener("DOMContentLoaded", main);
+document.addEventListener("DOMContentLoaded", headerMain);
 
 const date = new Date();
 
-function main() {
+const months = [ // Använder denna tills months i repository är inlagt
+  "Janurai",
+  "Februari",
+  "Mars",
+  "April",
+  "Maj",
+  "Juni",
+  "Juli",
+  "Augusti",
+  "September",
+  "Oktober",
+  "November",
+  "December",
+];
+
+function headerMain() {
   addEventListeners();
+
+  renderHeader(date);
+
+  document.querySelector(".header-dates p").innerHTML = 
+    "Dagens datum: " + new Date().toLocaleDateString("sv-SE", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+  });
+}
+
+function renderHeader(date) {
+  document.getElementById("header-month").innerHTML = months[date.getMonth()];
+  
+  document.getElementById("header-year").innerHTML = date.getFullYear();
 }
 
 function addEventListeners() {
-  const prevMonth = document.querySelector(".prev-month");
-  prevMonth.addEventListener("click", () => {
-    selectedMonth(date.setMonth(date.getMonth() - 1));
+  document.querySelector(".prev-month").addEventListener("click", () => {
+    date.setMonth(date.getMonth() - 1);
+    renderHeader(date);
+    selectedMonth(date.getMonth());
   });
 
-  const nextMonth = document.querySelector(".next-month");
-  prevMonth.addEventListener("click", () => {
-    selectedMonth(date.setMonth(date.getMonth() + 1));
+  document.querySelector(".next-month").addEventListener("click", () => {
+    date.setMonth(date.getMonth() + 1);
+    renderHeader(date);
+    selectedMonth(date.getMonth());
   });
 
-  const prevYear = document.querySelector(".prev-year");
-  prevYear.addEventListener("click", () => {
-    selectedYear(date.setFullYear(date.getFullYear() - 1));
+  document.querySelector(".prev-year").addEventListener("click", () => {
+    date.setFullYear(date.getFullYear() - 1);
+    renderHeader(date);
+    // selectedYear(date.getFullYear());
   });
 
-  const nextYear = document.querySelector(".next-year");
-  nextYear.addEventListener("click", () => {
-    selectedYear(date.setFullYear(date.getFullYear() + 1));
+  document.querySelector(".next-year").addEventListener("click", () => {
+    date.setFullYear(date.getFullYear() + 1);
+    renderHeader(date);
+    // selectedYear(date.getFullYear());
   });
 }
