@@ -54,7 +54,3 @@ async function getFirstDayInMonth(month, year) {
   console.log(firstDay);
   return firstDay;
 }
-
-asyncGetYear(2022);
-checkIfRedDay(25, 12, 2022);
-getFirstDayInMonth(6, 2022);
