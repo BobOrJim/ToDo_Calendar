@@ -26,16 +26,42 @@ const months = [
 function headerMain() {
   addEventListeners();
 
+
   renderHeader(selectedDate);
 
   document.querySelector(".header-dates p").innerHTML =
     "Dagens datum: " +
     new Date().toLocaleDateString("sv-SE", {
+  renderHeader(date);
+  updateClock(); 
+}
+
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function updateClock() {
+  var today = new Date();
+  document.querySelector(".header-dates p").innerHTML =
+    /* "Dagens datum: " +  */ today.toLocaleDateString("sv-SE", {
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
+
     });
+
+    }) +
+    " - " +
+    today.getHours() +
+    ":" +
+    today.getMinutes() +
+    ":" +
+    addZero(today.getSeconds());
+  setTimeout(updateClock, 1000);
 }
 
 function renderHeader(selectedDate) {
