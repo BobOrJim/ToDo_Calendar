@@ -1,16 +1,15 @@
 //sholiday.faboul.se/dagar/v2.1/2022/06/14
 
-//Check if a day is a red day using the API https://sholiday.faboul.se/
-//The function to use is checkIfRedDay(date), and it returns a bool.
+//Check if a day is a red day with the function checkIfRedDay(day, month, year), and it returns a bool.
+//Check what is the first day of a month with the function getFirstDayInMonth(month, year), and it returns a string with the first day of the month.
 
 //URL used
-var apiUrlDate = "https://sholiday.faboul.se/dagar/v2.1/";
-var apiUrlYear = "https://sholiday.faboul.se/dagar/v2.1/2022";
+var apiUrl = "https://sholiday.faboul.se/dagar/v2.1/";
 
 //method to get all red days for a specific year
-async function asyncGetYear() {
+async function asyncGetYear(year) {
   try {
-    let response = await fetch(apiUrlYear, {
+    let response = await fetch(apiUrl+year, {
       method: "get",
     });
     const data = await response.json();
@@ -23,7 +22,7 @@ async function asyncGetYear() {
 //Method to get information about a specific day
 async function asyncGetDate(date) {
   try {
-    let response = await fetch(apiUrlDate + date, {
+    let response = await fetch(apiUrl + date, {
       method: "get",
     });
     const data = await response.json();
@@ -56,6 +55,6 @@ async function getFirstDayInMonth(month, year) {
   return firstDay;
 }
 
-asyncGetYear();
+asyncGetYear(2022);
 checkIfRedDay(25, 12, 2022);
 getFirstDayInMonth(6, 2022);
