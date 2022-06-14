@@ -1,38 +1,55 @@
-import { months } from "./repository.js";
+import { loadedYearRepo, selectedDate } from "./globalVariables.js";
+import { getFirstDayInMonth, getLastDayInMonth } from "./fetchRedDaysAPI.js";
+import { saveYear } from "./repository.js"
 
-let monthNumber = new Date().getMonth();
+let weekDays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
 
-export function initMain() {
-  console.log("running initMain()");
-  console.log(months);
-  renderMain();
+export async function renderMain() {
+
+  saveYear();
+  const calendarContainer = document.getElementById("calendarContainer");
+  calendarContainer.innerHTML = ""; //Remove all markup from calendarContainer
+
+  await addDummyDaysToBeginingOfMonth();
+  addDaysToMonth();
+  addDummyDaysToEndOfMonth();
 }
 
-export function selectedMonth(selectedMonthNumber) {
-  monthNumber = selectedMonthNumber;
-  renderMain();
+async function addDummyDaysToBeginingOfMonth(){
+  const calendarContainer = document.getElementById("calendarContainer");
+  let day = await getFirstDayInMonth(selectedDate.getMonth(), selectedDate.getFullYear());
+  //console.log("first day of month: " + day);
+  let dummyDaysBeforeToAdd = weekDays.indexOf(day);
+  let daysInPreviousMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 0).getDate();
+  for (let i = dummyDaysBeforeToAdd; i > 0; i--) {
+    const dayCard = createDummyDayCardMarkup(daysInPreviousMonth -i);
+    calendarContainer.appendChild(dayCard);
+  }
 }
 
-export function toDosChanged() {
-  //Denna kommer personen som bygger aside anropa, efter efter att months är ändrad (i aside)
-  renderMain();
+function addDaysToMonth(){
+  const calendarContainer = document.getElementById("calendarContainer");
+  for (let i = 0; i < loadedYearRepo[selectedDate.getMonth()].length; i++) {
+    const dayCard = createDayCardMarkup(selectedDate.getMonth(), i);
+    dayCard.addEventListener("click", () => dayClickedEventHandler(selectedDate.getMonth(), i));
+    calendarContainer.appendChild(dayCard);
+  }
 }
 
-function renderMain() {
-  const calendarContiner = document.getElementById("calendarContiner");
-  calendarContiner.innerHTML = "";
+async function addDummyDaysToEndOfMonth(){
+  let day = await getLastDayInMonth(selectedDate.getMonth(), selectedDate.getFullYear());
+  //console.log("last day of month: " + day);
+  let dummyDaysAfterToAdd = 6 - weekDays.indexOf(day);
+  //console.log(dummyDaysAfterToAdd);
 
-  for (let i = 0; i < months[monthNumber].length; i++) {
-    const dayCard = createDayCardMarkup(monthNumber, i);
-    dayCard.addEventListener("click", () => dayClickedEventHandler(monthNumber, i));
-    calendarContiner.appendChild(dayCard);
+  for (let i = 0; i < dummyDaysAfterToAdd; i++) {
+    const dayCard = createDummyDayCardMarkup(i);
+    calendarContainer.appendChild(dayCard);
   }
 }
 
 function dayClickedEventHandler(monthNumber, i, e) {
-  months[monthNumber][i].isSelected = !months[monthNumber][i].isSelected;
-  //console.log("HALOJ");
-  console.log(months[monthNumber][i].isSelected);
+  loadedYearRepo[monthNumber][i].isSelected = !loadedYearRepo[monthNumber][i].isSelected;
   renderMain();
   //Denna metod kommer ta fram dag som användare klickat på, och skicka denna info vidare genom att anropa en metod i aside, tex selectedDay(dayNumber)
 }
@@ -41,11 +58,10 @@ function createDayCardMarkup(monthNumber, dayNumber) {
   //Skapar div day-card
   const dayCard = document.createElement("div");
   dayCard.classList.add("day-card");
-  if (months[monthNumber][dayNumber].isRed) {
+  if (loadedYearRepo[monthNumber][dayNumber].isRed) {
     dayCard.classList.add("day-card-idRed");
   }
-  if (months[monthNumber][dayNumber].isSelected) {
-    console.log("HALOJ");
+  if (loadedYearRepo[monthNumber][dayNumber].isSelected) {
     dayCard.classList.add("day-card-isSelected");
   }
 
@@ -58,11 +74,25 @@ function createDayCardMarkup(monthNumber, dayNumber) {
   //Skapar p day-card-tasks
   const dayCardTasks = document.createElement("p");
   dayCardTasks.classList.add("day-card-tasks");
-  const numberOfTasks = months[monthNumber][dayNumber].tasks.length;
+  const numberOfTasks = loadedYearRepo[monthNumber][dayNumber].tasks.length;
   if (numberOfTasks > 0) {
     dayCardTasks.innerHTML = numberOfTasks;
     dayCard.appendChild(dayCardTasks);
   }
 
+  return dayCard;
+}
+
+function createDummyDayCardMarkup(dayNumber){
+    //Skapar div day-card
+  const dayCard = document.createElement("div");
+  dayCard.classList.add("day-card");
+  dayCard.classList.add("day-card-isDummy");
+
+  //Skapar p day-card-text
+  const dayCardText = document.createElement("p");
+  dayCardText.classList.add("day-card-text");
+  dayCardText.innerHTML = dayNumber + 1;
+  dayCard.appendChild(dayCardText);
   return dayCard;
 }
