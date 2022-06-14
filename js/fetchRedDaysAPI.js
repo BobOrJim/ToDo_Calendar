@@ -1,97 +1,61 @@
-var apiUrlToken = "https://svenskahelgdagar.info/v2/access_token";
-//var apiUrlToday = "https://svenskahelgdagar.info/v2/today";
-//var apiUrlPrevious = "https://svenskahelgdagar.info/v2/previous";
-//var apiUrlNext = "https://svenskahelgdagar.info/v2/next";
-var apiUrlDate = "https://svenskahelgdagar.info/v2/date/";
-var apiUrlYear = "https://svenskahelgdagar.info/v2//year/2022";
+//sholiday.faboul.se/dagar/v2.1/2022/06/14
 
-var requestBodyUrl1 = {
-  grant_type: "client_credentials",
-  client_id: "alannandre4225",
-  client_secret: "d37dd8-8d60dd-382975-a063bb-f50381",
-};
+//Check if a day is a red day using the API https://sholiday.faboul.se/
+//The function to use is checkIfRedDay(date), and it returns a bool.
 
-var optionPost = {
-  method: "post",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(requestBodyUrl1),
-};
+//URL used
+var apiUrlDate = "https://sholiday.faboul.se/dagar/v2.1/";
+var apiUrlYear = "https://sholiday.faboul.se/dagar/v2.1/2022";
 
-async function asyncGetToken() {
-  try {
-    const response = await fetch(apiUrlToken, optionPost);
-    const data = await response.json();
-    // enter you logic when the fetch is successful
-    console.log(data);
-    return data.access_token;
-  } catch (error) {
-    // enter your logic for when there is an error (ex. error toast)
-    console.log(error);
-  }
-}
-
+//method to get all red days for a specific year
 async function asyncGetYear() {
   try {
     let response = await fetch(apiUrlYear, {
       method: "get",
-      headers: {
-        Authorization: `bearer ${await asyncGetToken()}`,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
     });
     const data = await response.json();
-    // enter you logic when the fetch is successful
     console.log(data);
   } catch (error) {
-    // enter your logic for when there is an error (ex. error toast)
     console.log(error);
   }
 }
 
+//Method to get information about a specific day
 async function asyncGetDate(date) {
   try {
     let response = await fetch(apiUrlDate + date, {
       method: "get",
-      headers: {
-        Authorization: `bearer ${await asyncGetToken()}`,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
     });
     const data = await response.json();
     console.log(data);
     return data;
-    //return await response.json();
-    // enter you logic when the fetch is successful
-    /*     
-    var red = data.response.public_sunday;
-    console.log(red);
-    return data.public_sunday; */
   } catch (error) {
-    // enter your logic for when there is an error (ex. error toast)
     console.log(error);
   }
 }
 
-/* asyncGetYear();
-let today = new Date().toISOString().slice(0, 10);
-console.log(today); */
-var date = "2024-12-25";
-console.log(date);
-var Url = apiUrlDate + date;
-console.log(Url);
-
-async function checkIfRedDay(date) {
+//Method to check if a day is a red day
+async function checkIfRedDay(day, month, year) {
+  var date = `${year}/${month}/${day}`;
   let dateData = await asyncGetDate(date);
-  let isRed = dateData.response.public_sunday;
+  let isRed = dateData.dagar[0]["röd dag"];
   console.log(isRed);
-  if (isRed) {
+  if (isRed == "Ja") {
     console.log("Red Day!!!");
+    return true;
   } else console.log("Go to work!");
-  return isRed;
+  return false;
 }
 
-checkIfRedDay(date);
+//Method to check what day of the week is the first day of the month
+async function getFirstDayInMonth(month, year) {
+  var date = `${year}/${month}/01`;
+  let dateData = await asyncGetDate(date);
+  let firstDay = dateData.dagar[0].veckodag;
+  console.log(firstDay);
+  return firstDay;
+}
+
+asyncGetYear();
+checkIfRedDay(25, 12, 2022);
+getFirstDayInMonth(6, 2022);
