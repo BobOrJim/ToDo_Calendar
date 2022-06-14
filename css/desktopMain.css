@@ -62,6 +62,10 @@ main {
   background-color: #cc5353;
 }
 
+.day-card-isSelected {
+  background-color: #171917;
+}
+
 /*
 .video-card-top {
   margin-bottom: 8px;
