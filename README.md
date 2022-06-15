@@ -20,7 +20,7 @@
 
 [ ] 9. Användaren skall kunna ändra en todo - (VG)
 
-[ ] 10. Användaren skall kunna växa till andra månader i kalendervyn - (VG)
+[X] 10. Användaren skall kunna växa till andra månader i kalendervyn - (VG)
 
 [ ] 11. Svenska helgdagar visas i kalendern - (VG)
 
