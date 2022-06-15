@@ -6,6 +6,10 @@
 //URL used
 var apiUrl = "https://sholiday.faboul.se/dagar/v2.1/";
 
+//Hashmap to store first and last day of month. Solves the 500ms blinking problin in the main area during each renderMain()
+let firstDayInMonthMap = new Map();
+let lastDayInMonthMap = new Map();
+
 //method to get all red days for a specific year
 async function asyncGetYear(year) {
   try {
@@ -48,18 +52,32 @@ async function checkIfRedDay(day, month, year) {
 
 //Method to check what day of the week is the first day of the month
 export async function getFirstDayInMonth(month, year) {
+
+  //Check if the firstday name is already in the map
+  let key = `${month}-${year}`;
+  if (firstDayInMonthMap.has(key)) {
+    return firstDayInMonthMap.get(key);
+  }
+
   var date = `${year}/${month + 1}/01`;
   let dateData = await asyncGetDate(date);
   let firstDay = dateData.dagar[0].veckodag;
-  //console.log(firstDay);
+  firstDayInMonthMap.set(key, firstDay);
   return firstDay;
 }
 
-//Sista dagen i månaden. SNYGGA TILL SENARE... :)
+//Method to check what day of the week is the last day of the month
 export async function getLastDayInMonth(month, year) {
+
+  //Check if the lastday name is already in the map
+  let key = `${month}-${year}`;
+  if (lastDayInMonthMap.has(key)) {
+    return lastDayInMonthMap.get(key);
+  }
+
   var date = `${year}/${month + 1}/01`;
   let dateData = await asyncGetDate(date);
-  let firstDay = dateData.dagar[dateData.dagar.length - 1].veckodag;
-  //console.log(firstDay);
-  return firstDay;
+  let lastDay = dateData.dagar[dateData.dagar.length - 1].veckodag;
+  lastDayInMonthMap.set(key, lastDay);
+  return lastDay;
 }
