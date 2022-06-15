@@ -26,7 +26,7 @@ async function asyncGetDate(date) {
       method: "get",
     });
     const data = await response.json();
-    //console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -48,7 +48,7 @@ async function checkIfRedDay(day, month, year) {
 
 //Method to check what day of the week is the first day of the month
 export async function getFirstDayInMonth(month, year) {
-  var date = `${year}/${month}/01`;
+  var date = `${year}/${month + 1}/01`;
   let dateData = await asyncGetDate(date);
   let firstDay = dateData.dagar[0].veckodag;
   //console.log(firstDay);
@@ -57,7 +57,7 @@ export async function getFirstDayInMonth(month, year) {
 
 //Sista dagen i månaden. SNYGGA TILL SENARE... :)
 export async function getLastDayInMonth(month, year) {
-  var date = `${year}/${month}/01`;
+  var date = `${year}/${month + 1}/01`;
   let dateData = await asyncGetDate(date);
   let firstDay = dateData.dagar[dateData.dagar.length - 1].veckodag;
   //console.log(firstDay);
