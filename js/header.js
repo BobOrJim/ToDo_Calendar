@@ -1,11 +1,13 @@
-import { selectedMonth } from "./main.js";
+import { renderMain } from "./main.js";
+import { selectedDate } from "./globalVariables.js";
+
 // import { months } from "./repository.js";
 
 document.addEventListener("DOMContentLoaded", headerMain);
 
-const date = new Date();
+//const date = new Date();
 
-const months = [ // Använder denna tills months i repository är inlagt
+const months = [
   "Januari",
   "Februari",
   "Mars",
@@ -22,6 +24,13 @@ const months = [ // Använder denna tills months i repository är inlagt
 
 function headerMain() {
   addEventListeners();
+
+
+  renderHeader(selectedDate);
+
+  document.querySelector(".header-dates p").innerHTML =
+    "Dagens datum: " +
+    new Date().toLocaleDateString("sv-SE", {
   renderHeader(date);
   updateClock(); 
 }
@@ -41,6 +50,9 @@ function updateClock() {
       year: "numeric",
       month: "long",
       day: "numeric",
+
+    });
+
     }) +
     " - " +
     addZero(today.getHours()) +
@@ -51,34 +63,38 @@ function updateClock() {
   setTimeout(updateClock, 1000);
 }
 
-function renderHeader(date) {
-  document.getElementById("header-month").innerHTML = months[date.getMonth()];
-  
-  document.getElementById("header-year").innerHTML = date.getFullYear();
+function renderHeader(selectedDate) {
+  document.getElementById("header-month").innerHTML = months[selectedDate.getMonth()];
+
+  document.getElementById("header-year").innerHTML = selectedDate.getFullYear();
 }
 
 function addEventListeners() {
   document.querySelector(".prev-month").addEventListener("click", () => {
-    date.setMonth(date.getMonth() - 1);
-    renderHeader(date);
-    selectedMonth(date.getMonth());
+    selectedDate.setMonth(selectedDate.getMonth() - 1);
+    renderHeader(selectedDate);
+    //selectedMonth(date.getMonth());
+    renderMain();
   });
 
   document.querySelector(".next-month").addEventListener("click", () => {
-    date.setMonth(date.getMonth() + 1);
-    renderHeader(date);
-    selectedMonth(date.getMonth());
+    selectedDate.setMonth(selectedDate.getMonth() + 1);
+    renderHeader(selectedDate);
+    //selectedMonth(date.getMonth());
+    renderMain();
   });
 
   document.querySelector(".prev-year").addEventListener("click", () => {
-    date.setFullYear(date.getFullYear() - 1);
-    renderHeader(date);
+    selectedDate.setFullYear(selectedDate.getFullYear() - 1);
+    renderHeader(selectedDate);
     // selectedYear(date.getFullYear());
+    renderMain();
   });
 
   document.querySelector(".next-year").addEventListener("click", () => {
-    date.setFullYear(date.getFullYear() + 1);
-    renderHeader(date);
+    selectedDate.setFullYear(selectedDate.getFullYear() + 1);
+    renderHeader(selectedDate);
     // selectedYear(date.getFullYear());
+    renderMain();
   });
 }

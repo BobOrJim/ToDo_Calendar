@@ -19,11 +19,18 @@
     <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopAside.css" />
     <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopMain.css" />
     <!-- Scripts -->
+    <!-- ToDo: Ta bort nedan strax
     <script src="./js/repository.js" type="module"></script>
+    <script src="./js/globalVariables.js" type="module"></script>
     <script defer src="./js/aside.js"></script>
     <script src="./js/program.js" defer type="module"></script>
     <script src="./js/header.js" type="module"></script>
     <script src="./js/fetchRedDaysAPI.js"></script>
+    -->
+    <script src="./js/header.js" type="module"></script> <!-- toDo: Dessa filer skall "startas" from program.js-->
+    <script defer src="./js/aside.js"></script> <!-- toDo: Dessa filer skall "startas" from program.js-->
+    <script src="./js/program.js" defer type="module"></script>
+
   </head>
   <body>
     <header>
@@ -77,8 +84,7 @@
       <div>Söndag</div>
     </div>
     <main>
-      <div id="calendarContiner" class="day-card-wrapper">
-      </div>
+      <div id="calendarContainer" class="day-card-wrapper"></div>
     </main>
   </body>
 </html>

@@ -1,63 +1,64 @@
 import { Day } from "./models/day.js";
+import { loadedYearRepo, selectedDate } from "./globalVariables.js";
 
-export var months = [];
-// Ev genererar jag månad, när man bräddrar.
 export function loadYear() {
-  console.log("running loadYear()");
-  if (localStorage.getItem("year") === null) {
+  
+  let stuff = JSON.parse(localStorage.getItem(selectedDate.getFullYear()));
+  if (stuff === null) {
     buildYear();
     seedYear();
   } else {
-    months = JSON.parse(localStorage.getItem("year"));
+    let data = JSON.parse(localStorage.getItem(selectedDate.getFullYear()));
+    loadedYearRepo.push(...data);
   }
 }
 
 export function saveYear() {
-  localStorage.setItem("year", JSON.stringify(months));
+  localStorage.setItem(selectedDate.getFullYear(), JSON.stringify(loadedYearRepo));
 }
 
 function buildYear() {
-  months.push(addDaysToMonth(1)); //januari
-  months.push(addDaysToMonth(2)); //februari
-  months.push(addDaysToMonth(3)); //mars
-  months.push(addDaysToMonth(4)); //april
-  months.push(addDaysToMonth(5)); //maj
-  months.push(addDaysToMonth(6)); //juni
-  months.push(addDaysToMonth(7)); //juli
-  months.push(addDaysToMonth(8)); //augusti
-  months.push(addDaysToMonth(9)); //september
-  months.push(addDaysToMonth(10)); //oktober
-  months.push(addDaysToMonth(11)); //november
-  months.push(addDaysToMonth(12)); //december
+  console.log("running buildYear()");
+  loadedYearRepo.push(addDaysToMonth(1)); //januari
+  loadedYearRepo.push(addDaysToMonth(2)); //februari
+  loadedYearRepo.push(addDaysToMonth(3)); //mars
+  loadedYearRepo.push(addDaysToMonth(4)); //april
+  loadedYearRepo.push(addDaysToMonth(5)); //maj
+  loadedYearRepo.push(addDaysToMonth(6)); //juni
+  loadedYearRepo.push(addDaysToMonth(7)); //juli
+  loadedYearRepo.push(addDaysToMonth(8)); //augusti
+  loadedYearRepo.push(addDaysToMonth(9)); //september
+  loadedYearRepo.push(addDaysToMonth(10)); //oktober
+  loadedYearRepo.push(addDaysToMonth(11)); //november
+  loadedYearRepo.push(addDaysToMonth(12)); //december
+  addRedDays();
 }
 
 function addDaysToMonth(monthNumber) {
   let month = [];
-  for (let i = 1; i <= new Date(2022, monthNumber, 0).getDate(); i++) {
+  for (let i = 1; i <= new Date(selectedDate.getFullYear(), monthNumber, 0).getDate(); i++) {
     var day = new Day();
     day.number = i;
-    day.isRed = false; //här tro jag fetch från api skall anropas, som kollar om dag är röd. alt att vi hämtar månad för månad
+    day.isRed = false; 
     day.tasks = [];
     month.push(day);
   }
   return month;
 }
 
+function addRedDays(){
+  //logik så alla röda dagar sätts, gärna med ganska få fetch arnop.
+  loadedYearRepo[5][1].isRed = true;
+}
+
 function seedYear() {
-  months.forEach((month) => {
-    //console.log(month);
-  });
-
-  months[6].forEach((day) => {
-    //console.log(day);
-  });
-
-  months[5][1].tasks.push("Buy soda");
-  months[5][1].isRed = true;
-  months[5][10].tasks.push("Buy beer");
-  months[5][11].tasks.push("Buy milk");
-  months[5][11].tasks.push("Buy bread");
-  months[5][11].tasks.push("Buy cheese");
-  months[5][22].tasks.push("Buy butter");
-  months[5][22].tasks.push("Buy eggs");
+  console.log("running seedYear()");
+  loadedYearRepo[5][1].tasks.push("Buy soda");
+  loadedYearRepo[5][1].isRed = true;
+  loadedYearRepo[5][10].tasks.push("Buy beer");
+  loadedYearRepo[5][11].tasks.push("Buy milk");
+  loadedYearRepo[5][11].tasks.push("Buy bread");
+  loadedYearRepo[5][11].tasks.push("Buy cheese");
+  loadedYearRepo[5][22].tasks.push("Buy butter");
+  loadedYearRepo[5][22].tasks.push("Buy eggs");
 }

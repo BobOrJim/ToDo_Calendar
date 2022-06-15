@@ -1,5 +1,5 @@
-import { loadYear, months } from "./repository.js";
-import { initMain } from "./main.js";
+import { loadYear } from "./repository.js";
+import { renderMain } from "./main.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   main();
@@ -8,5 +8,5 @@ document.addEventListener("DOMContentLoaded", () => {
 function main() {
   console.clear();
   loadYear();
-  initMain();
+  renderMain();
 }
