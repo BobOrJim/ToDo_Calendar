@@ -38,9 +38,7 @@ function addDaysToMonth(){
 
 async function addDummyDaysToEndOfMonth(){
   let day = await getLastDayInMonth(selectedDate.getMonth(), selectedDate.getFullYear());
-  //console.log("last day of month: " + day);
   let dummyDaysAfterToAdd = 6 - weekDays.indexOf(day);
-  //console.log(dummyDaysAfterToAdd);
 
   for (let i = 0; i < dummyDaysAfterToAdd; i++) {
     const dayCard = createDummyDayCardMarkup(i);

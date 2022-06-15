@@ -70,14 +70,15 @@ export async function getFirstDayInMonth(month, year) {
 export async function getLastDayInMonth(month, year) {
 
   //Check if the lastday name is already in the map
+  
   let key = `${month}-${year}`;
   if (lastDayInMonthMap.has(key)) {
     return lastDayInMonthMap.get(key);
   }
 
-  var date = `${year}/${month + 1}/01`;
+  var date = `${year}/${month +1}`;
   let dateData = await asyncGetDate(date);
-  let lastDay = dateData.dagar[dateData.dagar.length - 1].veckodag;
+  let lastDay = dateData.dagar[dateData.dagar.length -1].veckodag;
   lastDayInMonthMap.set(key, lastDay);
   return lastDay;
 }
