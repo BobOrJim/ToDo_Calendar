@@ -1,4 +1,5 @@
 //sholiday.faboul.se/dagar/v2.1/2022/06/14
+import { loadedYearRepo } from "./globalVariables.js";
 
 //Check if a day is a red day with the function checkIfRedDay(day, month, year), and it returns a bool.
 //Check what is the first day of a month with the function getFirstDayInMonth(month, year), and it returns a string with the first day of the month.
@@ -38,21 +39,38 @@ async function asyncGetDate(date) {
 }
 
 //Method to check if a day is a red day
-async function checkIfRedDay(day, month, year) {
-  var date = `${year}/${month}/${day}`;
-  let dateData = await asyncGetDate(date);
-  let isRed = dateData.dagar[0]["röd dag"];
-  console.log(isRed);
-  if (isRed == "Ja") {
-    console.log("Red Day!!!");
-    return true;
-  } else console.log("Go to work!");
-  return false;
+export async function changeRedDays(year) {
+  let response = await fetch(apiUrl + year);
+  let yearData = await response.json();
+
+  for (let m = 0; m < loadedYearRepo.length; m++) {
+    let monthToCheck = `${loadedYearRepo.indexOf(loadedYearRepo[m]) + 1}`;
+
+    if (monthToCheck.length === 1) monthToCheck = "0" + monthToCheck;
+
+    for (let d = 0; d < loadedYearRepo[m].length; d++) {
+      let dayToCheck = `${loadedYearRepo[m][d].number}`;
+
+      if (dayToCheck.length === 1) dayToCheck = "0" + dayToCheck;
+
+      let dateToCheck = year + "-" + monthToCheck + "-" + dayToCheck;
+
+      loadedYearRepo[m][d].isRed = checkIfRedDay(dateToCheck, yearData);
+    }
+  }
+}
+
+function checkIfRedDay(date, yearData) {
+  for (let i = 0; i < yearData.dagar.length; i++) {
+    if (yearData.dagar[i].datum === date) {
+      if (yearData.dagar[i]["röd dag"] === "Ja") return true;
+      else return false;
+    }
+  }
 }
 
 //Method to check what day of the week is the first day of the month
 export async function getFirstDayInMonth(month, year) {
-
   //Check if the firstday name is already in the map
   let key = `${month}-${year}`;
   if (firstDayInMonthMap.has(key)) {
@@ -68,17 +86,16 @@ export async function getFirstDayInMonth(month, year) {
 
 //Method to check what day of the week is the last day of the month
 export async function getLastDayInMonth(month, year) {
-
   //Check if the lastday name is already in the map
-  
+
   let key = `${month}-${year}`;
   if (lastDayInMonthMap.has(key)) {
     return lastDayInMonthMap.get(key);
   }
 
-  var date = `${year}/${month +1}`;
+  var date = `${year}/${month + 1}`;
   let dateData = await asyncGetDate(date);
-  let lastDay = dateData.dagar[dateData.dagar.length -1].veckodag;
+  let lastDay = dateData.dagar[dateData.dagar.length - 1].veckodag;
   lastDayInMonthMap.set(key, lastDay);
   return lastDay;
 }
