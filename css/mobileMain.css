@@ -1,0 +1,35 @@
+.days-header {
+  display: none;
+}
+
+main {
+  display: none;
+}
+
+.day-card-wrapper {
+  display: none;
+}
+
+.day-card {
+  display: none;
+}
+
+.day-card-text {
+  display: none;
+}
+
+.day-card-idRed {
+  display: none;
+}
+
+.day-card-tasks {
+  display: none;
+}
+
+.day-card-isSelected {
+  display: none;
+}
+
+.day-card-isDummy {
+  display: none;
+}
