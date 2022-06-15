@@ -1,5 +1,5 @@
 .days-header {
-  background-color: #cc5353;
+  background-color: #191a1a;
   position: fixed;
   left: var(--sidebar-width);
   right: 0;
@@ -23,7 +23,7 @@ main {
 .day-card-wrapper {
   display: grid;
   column-gap: 26px;
-  row-gap: 8px; 
+  row-gap: 8px;
   justify-items: center;
   background-color: #04f02c;
   margin-top: 10px;
