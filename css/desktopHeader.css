@@ -1,5 +1,5 @@
 header {
-  background-color: #cd6b1a;
+  background-color: #191a1a;
   border-bottom: 1px solid #dddddd;
   position: fixed;
   left: 0;
@@ -19,14 +19,14 @@ header div {
 header p {
   font-weight: 700;
   color: rgb(17, 188, 227);
-  text-shadow: 0 .2rem .1rem rgba(0,0,0,.5);
+  text-shadow: 0 0.2rem 0.1rem rgba(0, 0, 0, 0.5);
 }
 
 header i {
   cursor: pointer;
-  padding-left: .3rem;
+  padding-left: 0.3rem;
   font-weight: 900;
-  text-shadow: 0 .1rem .1rem rgb(17, 188, 227);
+  text-shadow: 0 0.1rem 0.1rem rgb(17, 188, 227);
 }
 
 .header-dates {
@@ -37,7 +37,7 @@ header i {
 }
 
 .header-dates h2 {
-  text-shadow: 0 0 .3rem rgb(17, 188, 227);
+  text-shadow: 0 0 0.3rem rgb(17, 188, 227);
 }
 
 .header-dates div {

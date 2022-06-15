@@ -39,11 +39,8 @@ function buildYear() {
 
 function addDaysToMonth(monthNumber) {
   let month = [];
-  for (
-    let i = 1;
-    i <= new Date(selectedDate.getFullYear(), monthNumber, 0).getDate();
-    i++
-  ) {
+  for (let i = 1; i <= new Date(selectedDate.getFullYear(), monthNumber, 0).getDate(); i++) {
+    console.log(selectedDate.getFullYear(), monthNumber, i);
     var day = new Day();
     day.number = i;
     day.isRed = false;
