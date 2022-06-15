@@ -19,17 +19,8 @@
     <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopAside.css" />
     <link rel="stylesheet" media="screen and (min-width: 480px)" href="./css/desktopMain.css" />
     <!-- Scripts -->
-    <!-- ToDo: Ta bort nedan strax
-    <script src="./js/repository.js" type="module"></script>
-    <script src="./js/globalVariables.js" type="module"></script>
-    <script defer src="./js/aside.js"></script>
-    <script src="./js/program.js" defer type="module"></script>
-    <script src="./js/header.js" type="module"></script>
-    <script src="./js/fetchRedDaysAPI.js"></script>
-    -->
-    <script src="./js/header.js" type="module"></script> <!-- toDo: Dessa filer skall "startas" from program.js-->
-    <script defer src="./js/aside.js"></script> <!-- toDo: Dessa filer skall "startas" from program.js-->
-    <script src="./js/program.js" defer type="module"></script>
+    <script src="./js/header.js" type="module"></script> <!-- toDo: denna skall "startas" from program.js, och tas bort här.-->
+    <script src="./js/program.js" type="module"></script>
 
   </head>
   <body>
@@ -49,31 +40,12 @@
         <p></p>
       </div>
     </header>
+
     <aside>
-      <br />
-      <img style="width: 30%;" src="./img/GGK.png" alt="">             
-      <br />
-      <div class="aside-div">
-        <div>
-          <p>Lägg till aktivitet</p>
-        </div>
-        <div>          
-          <img
-            id="btn"
-            src="./img/calendar-plus.png"
-            alt="An example icon"
-            style="width: 24px; height: 24px"
-          />
-        </div>
-      </div>
-    </div>
-    <div style="height: 5px;"></div>
-    <form id="form">
-      <input type="text" />
-      <br>
-      <input type="button" value="Lägg till" />
-    </form>
+      <img style="width: 30%;" src="./img/GGK.png" alt="">              
+      <div id="todos-Container" class="todo-wrapper"> </div>
     </aside>
+
     <div class="days-header">
       <div>Måndag</div>
       <div>Tisdag</div>
@@ -83,8 +55,10 @@
       <div>Lördag</div>
       <div>Söndag</div>
     </div>
+
     <main>
       <div id="calendarContainer" class="day-card-wrapper"></div>
     </main>
+
   </body>
 </html>
