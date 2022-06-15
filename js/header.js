@@ -24,15 +24,8 @@ const months = [
 
 function headerMain() {
   addEventListeners();
-
-
   renderHeader(selectedDate);
-
-  document.querySelector(".header-dates p").innerHTML =
-    "Dagens datum: " +
-    new Date().toLocaleDateString("sv-SE", {
-  renderHeader(date);
-  updateClock(); 
+  updateClock();
 }
 
 function addZero(i) {
@@ -44,15 +37,13 @@ function addZero(i) {
 
 function updateClock() {
   var today = new Date();
+
   document.querySelector(".header-dates p").innerHTML =
     /* "Dagens datum: " +  */ today.toLocaleDateString("sv-SE", {
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
-
-    });
-
     }) +
     " - " +
     addZero(today.getHours()) +
@@ -60,11 +51,13 @@ function updateClock() {
     addZero(today.getMinutes()) +
     ":" +
     addZero(today.getSeconds());
+
   setTimeout(updateClock, 1000);
 }
 
 function renderHeader(selectedDate) {
-  document.getElementById("header-month").innerHTML = months[selectedDate.getMonth()];
+  document.getElementById("header-month").innerHTML =
+    months[selectedDate.getMonth()];
 
   document.getElementById("header-year").innerHTML = selectedDate.getFullYear();
 }
@@ -73,28 +66,24 @@ function addEventListeners() {
   document.querySelector(".prev-month").addEventListener("click", () => {
     selectedDate.setMonth(selectedDate.getMonth() - 1);
     renderHeader(selectedDate);
-    //selectedMonth(date.getMonth());
     renderMain();
   });
 
   document.querySelector(".next-month").addEventListener("click", () => {
     selectedDate.setMonth(selectedDate.getMonth() + 1);
     renderHeader(selectedDate);
-    //selectedMonth(date.getMonth());
     renderMain();
   });
 
   document.querySelector(".prev-year").addEventListener("click", () => {
     selectedDate.setFullYear(selectedDate.getFullYear() - 1);
     renderHeader(selectedDate);
-    // selectedYear(date.getFullYear());
     renderMain();
   });
 
   document.querySelector(".next-year").addEventListener("click", () => {
     selectedDate.setFullYear(selectedDate.getFullYear() + 1);
     renderHeader(selectedDate);
-    // selectedYear(date.getFullYear());
     renderMain();
   });
 }
