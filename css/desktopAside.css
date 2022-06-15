@@ -1,5 +1,5 @@
 aside {
-  background-color: #04a126;
+  background-image: linear-gradient(#191a1a, #717777);
   flex-direction: column;
   border-right: 1px solid #dddddd;
   min-width: var(--sidebar-width);
