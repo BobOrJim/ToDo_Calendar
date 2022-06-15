@@ -94,8 +94,8 @@ console.log(asyncGetYear(2022));
 function getNameDay(date,yearData){
   for (let i = 0; i < yearData.dagar.length; i++) {
      if (yearData.dagar[i].datum === date) {
-      if (yearData.dagar[i].namnsdag[0] !== "") return yearData.dagar[i].namnsdag[0];
-      else return "";
+      if (yearData.dagar[i].namnsdag[0] !== undefined) return yearData.dagar[i].namnsdag[0];
+      else return yearData.dagar[i].helgdag;
   }
 }
 }
