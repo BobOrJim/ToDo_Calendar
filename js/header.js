@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", headerMain);
 //const date = new Date();
 
 const months = [
-  // Använder denna tills months i repository är inlagt
-  "Janurai",
+  "Januari",
   "Februari",
   "Mars",
   "April",
@@ -56,9 +55,9 @@ function updateClock() {
 
     }) +
     " - " +
-    today.getHours() +
+    addZero(today.getHours()) +
     ":" +
-    today.getMinutes() +
+    addZero(today.getMinutes()) +
     ":" +
     addZero(today.getSeconds());
   setTimeout(updateClock, 1000);
