@@ -1,6 +1,5 @@
-
 import { loadedYearRepo, selectedDate } from "./globalVariables.js";
-import { saveYear } from "./repository.js"
+import { saveYear } from "./repository.js";
 import { renderMain } from "./main.js";
 
 export async function renderAside() {
@@ -8,18 +7,35 @@ export async function renderAside() {
   const asideContainer = document.getElementById("todos-Container");
   asideContainer.innerHTML = ""; //Remove all markup from calendarContainer
 
-  for (let monthNumber = 0; monthNumber < loadedYearRepo.length; monthNumber++) {
-    for (let dayNumber = 0; dayNumber < loadedYearRepo[monthNumber].length; dayNumber++) {
-      for (let toDoNumber = 0; toDoNumber < loadedYearRepo[monthNumber][dayNumber].tasks.length; toDoNumber++) {
-        let dateString = selectedDate.getFullYear() + "-" + (monthNumber + 1) + "-" + (dayNumber + 1);
-        let toDoDescription = loadedYearRepo[monthNumber][dayNumber].tasks[toDoNumber];
+  for (
+    let monthNumber = 0;
+    monthNumber < loadedYearRepo.length;
+    monthNumber++
+  ) {
+    for (
+      let dayNumber = 0;
+      dayNumber < loadedYearRepo[monthNumber].length;
+      dayNumber++
+    ) {
+      for (
+        let toDoNumber = 0;
+        toDoNumber < loadedYearRepo[monthNumber][dayNumber].tasks.length;
+        toDoNumber++
+      ) {
+        let dateString =
+          selectedDate.getFullYear() +
+          "-" +
+          (monthNumber + 1) +
+          "-" +
+          (dayNumber + 1);
+        let toDoDescription =
+          loadedYearRepo[monthNumber][dayNumber].tasks[toDoNumber];
         let test = createToDoCardMarkup(dateString, toDoDescription);
         asideContainer.appendChild(test);
       }
     }
   }
 }
-
 
 function createToDoCardMarkup(dateString, toDoDescription) {
   //Skapar div todo-card
@@ -42,12 +58,16 @@ function createToDoCardMarkup(dateString, toDoDescription) {
   //Skapar p todo-remove
   const toDoRemove = document.createElement("p");
   toDoRemove.classList.add("todo-remove");
-  toDoRemove.innerHTML = "X";
+  // toDoRemove.innerHTML = "X";
+  toDoRemove.innerHTML =
+    "<img src='img/calendar-delete.png' style = 'width: 60%' alt='remove'>";
   toDoRemove.addEventListener("click", (e) => todoRemoveEventHandler(e));
   //Skapar p todo-update
   const toDoUpdate = document.createElement("p");
   toDoUpdate.classList.add("todo-update");
-  toDoUpdate.innerHTML = "U";
+  // toDoUpdate.innerHTML = "U";
+  toDoUpdate.innerHTML =
+    "<img src='img/calendar-update.png' style = 'width: 60%' alt='remove'>";
   toDoUpdate.addEventListener("click", (e) => todoUpdateEventHandler(e));
   //Lägger till elementen i div todo-card
   toDoCard.appendChild(toDoCardLeft);
@@ -63,7 +83,9 @@ function todoRemoveEventHandler(e) {
   const toDoCard = e.target.parentElement.parentElement;
   const toDoCardLeft = toDoCard.children[0];
   const toDoDate = toDoCardLeft.children[0];
-  loadedYearRepo[toDoDate.innerHTML.split("-")[1] - 1][toDoDate.innerHTML.split("-")[2] - 1].tasks.splice(toDoCard.children[1].children[0].innerHTML, 1);
+  loadedYearRepo[toDoDate.innerHTML.split("-")[1] - 1][
+    toDoDate.innerHTML.split("-")[2] - 1
+  ].tasks.splice(toDoCard.children[1].children[0].innerHTML, 1);
   saveYear();
   renderMain();
   renderAside();
