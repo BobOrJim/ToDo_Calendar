@@ -1,6 +1,6 @@
 import { Day } from "./models/day.js";
 import { loadedYearRepo, selectedDate } from "./globalVariables.js";
-import { changeRedDays } from "./fetchRedDaysAPI.js";
+import { addNameDay, changeRedDays } from "./fetchRedDaysAPI.js";
 import { renderMain } from "./main.js";
 
 export function loadYear() {
@@ -40,11 +40,12 @@ function buildYear() {
 function addDaysToMonth(monthNumber) {
   let month = [];
   for (let i = 1; i <= new Date(selectedDate.getFullYear(), monthNumber, 0).getDate(); i++) {
-    console.log(selectedDate.getFullYear(), monthNumber, i);
+    //console.log(selectedDate.getFullYear(), monthNumber, i);
     var day = new Day();
     day.number = i;
     day.isRed = false;
     day.tasks = [];
+    day.nameDay = "Bob";
     month.push(day);
   }
   return month;
@@ -61,5 +62,6 @@ async function seedYear() {
   loadedYearRepo[5][22].tasks.push("Buy eggs");
 
   await changeRedDays(selectedDate.getFullYear());
+  await addNameDay(selectedDate.getFullYear());
   renderMain();
 }

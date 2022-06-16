@@ -63,6 +63,13 @@ function createDayCardMarkup(monthNumber, dayNumber) {
     dayCard.classList.add("day-card-isSelected");
   }
 
+  //Skapar p day-card-nameDay
+  const dayCardNameDay = document.createElement("p");
+  dayCardNameDay.classList.add("day-card-nameDay");
+  const nameDay = loadedYearRepo[monthNumber][dayNumber].nameDay;
+  dayCardNameDay.innerHTML = nameDay;
+  dayCard.appendChild(dayCardNameDay);
+
   //Skapar p day-card-text
   const dayCardText = document.createElement("p");
   dayCardText.classList.add("day-card-text");

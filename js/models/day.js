@@ -3,6 +3,6 @@ export class Day {
     this.isRed = 0;
     this.isSelected = false;
     this.tasks = [];
-    this.nameDay;
+    this.nameDay = "";
   }
 }

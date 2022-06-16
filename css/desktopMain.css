@@ -45,9 +45,16 @@ main {
 
 .day-card-text {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 2rem;
   color: white;
+}
+
+.day-card-nameDay {
+  text-align: center;
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: black;
 }
 
 .day-card-idRed {

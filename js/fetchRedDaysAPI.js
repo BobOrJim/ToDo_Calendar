@@ -69,6 +69,37 @@ function checkIfRedDay(date, yearData) {
   }
 }
 
+export async function addNameDay(year){
+  let response = await fetch(apiUrl + year);
+  let yearData = await response.json();
+
+  for (let m = 0; m < loadedYearRepo.length; m++) {
+    let monthToCheck = `${loadedYearRepo.indexOf(loadedYearRepo[m]) + 1}`;
+
+    if (monthToCheck.length === 1) monthToCheck = "0" + monthToCheck;
+
+    for (let d = 0; d < loadedYearRepo[m].length; d++) {
+      let dayToCheck = `${loadedYearRepo[m][d].number}`;
+
+      if (dayToCheck.length === 1) dayToCheck = "0" + dayToCheck;
+
+      let dateToCheck = year + "-" + monthToCheck + "-" + dayToCheck;
+      loadedYearRepo[m][d].nameDay = getNameDay(dateToCheck,yearData);
+    }
+  }
+}
+
+console.log(asyncGetYear(2022));
+
+function getNameDay(date,yearData){
+  for (let i = 0; i < yearData.dagar.length; i++) {
+     if (yearData.dagar[i].datum === date) {
+      if (yearData.dagar[i].namnsdag[0] !== undefined) return yearData.dagar[i].namnsdag[0];
+      else return yearData.dagar[i].helgdag;
+  }
+}
+}
+
 //Method to check what day of the week is the first day of the month
 export async function getFirstDayInMonth(month, year) {
   //Check if the firstday name is already in the map
