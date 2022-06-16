@@ -10,6 +10,7 @@ header {
   /*  align-items: normal;*/
   /* justify-content: space-between; */
   z-index: 100;
+  color: rgb(17, 188, 227);
 }
 
 header div {
