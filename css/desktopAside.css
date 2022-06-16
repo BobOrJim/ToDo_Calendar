@@ -26,23 +26,25 @@ aside {
   margin-bottom: 10px;
 }
 
-.todo-card-left{
-  background-color: #82a0b4;
+.todo-card-left {
+  /* background-color: #82a0b4; */
+  background-image: linear-gradient(#191a1a, #717777);
   width: 80%;
   height: 100%;
   float: left;
 }
 
-.todo-date{
-  background-color: #8f5b0e;
+.todo-date {
+  /* background-color: #8f5b0e; */
   float: top;
   color: white;
   font-size: 0.8rem;
   margin-bottom: 7px;
 }
 
-.todo-textarea{
-  background-color: #f8a527;
+.todo-textarea {
+  /* background-color: #f8a527; */
+  background-image: linear-gradient(#ffffff, #717777);
   color: black;
   font-size: 1rem;
   height: 70%;
@@ -50,14 +52,15 @@ aside {
   resize: none;
 }
 
-.todo-card-right{
-  background-color: #60b8f3;
+.todo-card-right {
+  /* background-color: #60b8f3; */
+  background-image: linear-gradient(#191a1a, #717777);
   width: 20%;
   height: 100%;
   float: right;
 }
 
-.todo-remove{
+.todo-remove {
   display: inline-block;
   border: 2px solid black;
   background-color: #ff0000;
@@ -70,7 +73,7 @@ aside {
   margin-bottom: 7px;
 }
 
-.todo-update{
+.todo-update {
   display: inline-block;
   border: 2px solid black;
   background-color: #0d9b19;
@@ -79,5 +82,4 @@ aside {
   padding: 5px;
   border-radius: 50%;
   cursor: pointer;
-
 }
