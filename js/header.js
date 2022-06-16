@@ -55,7 +55,7 @@ function updateClock() {
   setTimeout(updateClock, 1000);
 }
 
-function renderHeader(selectedDate) {
+export function renderHeader(selectedDate) {
   document.getElementById("header-month").innerHTML =
     months[selectedDate.getMonth()];
 
