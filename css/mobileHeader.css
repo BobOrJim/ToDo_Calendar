@@ -1,0 +1,46 @@
+header {
+  background-color: #191a1a;
+  border-bottom: 1px solid #dddddd;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--header-height);
+  display: flex;
+  /*  align-items: normal;*/
+  /* justify-content: space-between; */
+  z-index: 100;
+}
+
+header div {
+  width: 100%;
+}
+
+header p {
+  font-weight: 700;
+  color: rgb(17, 188, 227);
+  text-shadow: 0 0.2rem 0.1rem rgba(0, 0, 0, 0.5);
+}
+
+header i {
+  cursor: pointer;
+  padding-left: 0.3rem;
+  font-weight: 900;
+  text-shadow: 0 0.1rem 0.1rem rgb(17, 188, 227);
+}
+
+.header-dates {
+  position: fixed;
+  top: 1rem;
+  left: 5.5rem;
+  width: 100%;
+}
+
+.header-dates h2 {
+  text-shadow: 0 0 0.3rem rgb(17, 188, 227);
+}
+
+.header-dates div {
+  width: 15rem;
+  justify-content: space-between;
+}

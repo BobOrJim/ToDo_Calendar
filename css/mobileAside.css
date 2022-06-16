@@ -1,0 +1,83 @@
+aside {
+  background-image: linear-gradient(#191a1a, #717777);
+  flex-direction: column;
+  border-right: 1px solid #dddddd;
+  width: 100%;
+  position: fixed;
+
+  top: calc(var(--header-height));
+  bottom: 0;
+  left: 0;
+  text-align: center;
+
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.todo-wrapper {
+}
+
+.todo-card {
+  display: block;
+  border: 0px solid black;
+  background-color: #035811;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.todo-card-left{
+  background-color: #82a0b4;
+  width: 80%;
+  height: 100%;
+  float: left;
+}
+
+.todo-date{
+  background-color: #8f5b0e;
+  float: top;
+  color: white;
+  font-size: 0.8rem;
+  margin-bottom: 7px;
+}
+
+.todo-textarea{
+  background-color: #f8a527;
+  color: black;
+  font-size: 1rem;
+  height: 70%;
+  width: 90%;
+  resize: none;
+}
+
+.todo-card-right{
+  background-color: #60b8f3;
+  width: 20%;
+  height: 100%;
+  float: right;
+}
+
+.todo-remove{
+  display: inline-block;
+  border: 2px solid black;
+  background-color: #ff0000;
+  color: white;
+  font-size: 1.5rem;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.todo-update{
+  display: inline-block;
+  border: 2px solid black;
+  background-color: #0d9b19;
+  color: white;
+  font-size: 1.5rem;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+
+}
