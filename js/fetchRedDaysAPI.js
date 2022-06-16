@@ -89,7 +89,7 @@ export async function addNameDay(year){
   }
 }
 
-console.log(asyncGetYear(2022));
+//console.log(asyncGetYear(2022));
 
 function getNameDay(date,yearData){
   for (let i = 0; i < yearData.dagar.length; i++) {
