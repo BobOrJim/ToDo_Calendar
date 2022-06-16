@@ -1,6 +1,7 @@
 import { loadYear } from "./repository.js";
 import { renderMain } from "./main.js";
-import { renderAside, initAside} from "./aside.js";
+import { renderAside, initAside } from "./aside.js";
+import { headerMain, renderHeader } from "./header.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   main();
@@ -11,5 +12,6 @@ function main() {
   loadYear();
   initAside();
   renderAside();
+  headerMain();
   renderMain();
 }

@@ -1,12 +1,6 @@
 import { renderMain } from "./main.js";
 import { selectedDate } from "./globalVariables.js";
 
-// import { months } from "./repository.js";
-
-document.addEventListener("DOMContentLoaded", headerMain);
-
-//const date = new Date();
-
 const months = [
   "Januari",
   "Februari",
@@ -22,8 +16,8 @@ const months = [
   "December",
 ];
 
-function headerMain() {
-  addEventListeners();
+export function headerMain() {
+  addHeaderEventListeners();
   renderHeader(selectedDate);
   updateClock();
 }
@@ -62,7 +56,7 @@ export function renderHeader(selectedDate) {
   document.getElementById("header-year").innerHTML = selectedDate.getFullYear();
 }
 
-function addEventListeners() {
+function addHeaderEventListeners() {
   document.querySelector(".prev-month").addEventListener("click", () => {
     selectedDate.setMonth(selectedDate.getMonth() - 1);
     renderHeader(selectedDate);
