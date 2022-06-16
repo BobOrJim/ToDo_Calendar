@@ -8,7 +8,7 @@
 
 [X] 3. Skapa och designa välkomstsegmentet (delen ovanför todo-listan). Segmentet skall minst innehålla tid, veckodag och datum. - (G)
 
-[ ] 4. Användaren skall kunna lägga till en todo - (G)
+[X] 4. Användaren skall kunna lägga till en todo - (G)
 
 [X] 5. Användaren skall kunna ta bort en todo - (G)
 
