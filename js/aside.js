@@ -58,16 +58,16 @@ function createToDoCardMarkup(dateString, toDoDescription) {
   //Skapar p todo-remove
   const toDoRemove = document.createElement("p");
   toDoRemove.classList.add("todo-remove");
-  // toDoRemove.innerHTML = "X";
-  toDoRemove.innerHTML =
-    "<img src='img/calendar-delete.png' style = 'width: 60%' alt='remove'>";
+  toDoRemove.innerHTML = "X";
+  // toDoRemove.innerHTML =
+  //   "<img src='img/calendar-delete.png' style = 'width: 60%' alt='remove'>";
   toDoRemove.addEventListener("click", (e) => todoRemoveEventHandler(e));
   //Skapar p todo-update
   const toDoUpdate = document.createElement("p");
   toDoUpdate.classList.add("todo-update");
-  // toDoUpdate.innerHTML = "U";
-  toDoUpdate.innerHTML =
-    "<img src='img/calendar-update.png' style = 'width: 60%' alt='remove'>";
+  toDoUpdate.innerHTML = "U";
+  // toDoUpdate.innerHTML =
+  //   "<img src='img/calendar-update.png' style = 'width: 60%' alt='remove'>";
   toDoUpdate.addEventListener("click", (e) => todoUpdateEventHandler(e));
   //Lägger till elementen i div todo-card
   toDoCard.appendChild(toDoCardLeft);
