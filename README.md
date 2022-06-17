@@ -18,7 +18,7 @@
 
 [X] 8. Spara todos i local storage och visa dessa vid omladdning av sidan - (VG)
 
-[ ] 9. Användaren skall kunna ändra en todo - (VG)
+[X] 9. Användaren skall kunna ändra en todo - (VG)
 
 [X] 10. Användaren skall kunna växa till andra månader i kalendervyn - (VG)
 
