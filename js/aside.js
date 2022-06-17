@@ -1,7 +1,7 @@
 import { loadedYearRepo, selectedDate } from "./globalVariables.js";
 import { saveYear, loadYear } from "./repository.js";
 import { renderMain } from "./main.js";
-import { renderHeader } from "./header.js";
+import { addZero, renderHeader } from "./header.js";
 
 let openAddToDoMenu = false;
 let toDoSelectedDate = "";
@@ -25,8 +25,7 @@ export function renderAside() {
   }
 }
 
-function renderAddToDoMenu(asideContainer){
-
+function renderAddToDoMenu(asideContainer) {
   //Add datepicker
   const datepicker = document.createElement("INPUT");
   datepicker.setAttribute("type", "date");
@@ -47,10 +46,10 @@ function renderAddToDoMenu(asideContainer){
   button.innerHTML = "Add";
   button.addEventListener("click", (e) => addToDoEventHandler(e));
   asideContainer.appendChild(button);
-  
 }
 
-function datepickerEventHandler(e){ //För goare UX
+function datepickerEventHandler(e) {
+  //För goare UX
   toDoSelectedDate = e.target.value;
   selectedDate.setFullYear(toDoSelectedDate.split("-")[0]);
   selectedDate.setMonth(toDoSelectedDate.split("-")[1] - 1);
@@ -70,8 +69,12 @@ function addToDoEventHandler(e) {
   renderMain();
 }
 
-function renderAsideTodos(asideContainer){
-  for (let monthNumber = 0; monthNumber < loadedYearRepo.length; monthNumber++) {
+function renderAsideTodos(asideContainer) {
+  for (
+    let monthNumber = 0;
+    monthNumber < loadedYearRepo.length;
+    monthNumber++
+  ) {
     for (
       let dayNumber = 0;
       dayNumber < loadedYearRepo[monthNumber].length;
@@ -85,9 +88,9 @@ function renderAsideTodos(asideContainer){
         let dateString =
           selectedDate.getFullYear() +
           "-" +
-          (monthNumber + 1) +
+          addZero(monthNumber + 1) +
           "-" +
-          (dayNumber + 1);
+          addZero(dayNumber + 1);
         let toDoDescription =
           loadedYearRepo[monthNumber][dayNumber].tasks[toDoNumber];
         let test = createToDoCardMarkup(dateString, toDoDescription);
