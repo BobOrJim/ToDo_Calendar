@@ -5,6 +5,7 @@ header {
   left: 0;
   right: 0;
   top: 0;
+  padding-left: 5rem;
   height: var(--header-height);
   display: flex;
   /*  align-items: normal;*/
