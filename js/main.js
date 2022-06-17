@@ -114,10 +114,18 @@ function createDummyDayCardMarkup(dayNumber) {
   dayCard.classList.add("day-card");
   dayCard.classList.add("day-card-isDummy");
 
+
   //Skapar p day-card-text
   const dayCardText = document.createElement("p");
-  dayCardText.classList.add("day-card-text");
+  if(dayCard.classList.contains("day-card-isDummy")){
+    dayCardText.classList.add("day-card-isDummy-text");
+    dayCardText.innerHTML = dayNumber + 1;
+    dayCard.appendChild(dayCardText);
+    return dayCard;
+  }
+  else {dayCardText.classList.add("day-card-text");
   dayCardText.innerHTML = dayNumber + 1;
   dayCard.appendChild(dayCardText);
   return dayCard;
+}
 }
