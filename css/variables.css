@@ -5,4 +5,8 @@
   --sidebar-width: 300px; /* Bredden på sidomeny */
   --sub-header-height: 50px; /* Höjden sub-header inuti main */
   /* Kanske lägga in färger som konstanter här */
+  --aside-background-image: linear-gradient(#191a1a, #717777);
+  --toDoCardTxtArea-background-image: linear-gradient(#ffffff, #717777);
+  --headerBg-color: #191a1a;
+  --headerTxt-color: rgb(17, 188, 227);
 }
