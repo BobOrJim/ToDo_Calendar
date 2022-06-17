@@ -22,7 +22,7 @@ main {
   height: 100%;
   margin-top: calc(var(--header-height) + var(--sub-header-height));
   margin-left: var(--sidebar-width);
-  background-color: #25888b;
+  background-image: var(--aside-background-image);
   /* border-top: 1px solid rgba(0, 0, 0, 0.05); */
 }
 
@@ -31,7 +31,7 @@ main {
   column-gap: 26px;
   row-gap: 8px;
   justify-items: center;
-  background-image: var(--aside-background-image);
+  /* background-image: var(--aside-background-image); */
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
@@ -113,13 +113,9 @@ main {
     margin: 2px 2px 0 2px;
   }
 
-  .day-card-text {
-    font-size: 1rem;
-  }
-
+  .day-card-text,
   .day-card-isDummy-text {
     font-size: 1rem;
-    margin:10px;
   }
 }
 
