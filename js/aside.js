@@ -121,11 +121,13 @@ function createToDoCardMarkup(dateString, toDoDescription) {
   //Skapar p todo-remove
 
   const toDoRemove = document.createElement("span");
+  toDoRemove.title = "ta bort todo"
   toDoRemove.classList.add("material-symbols-outlined");
   toDoRemove.innerHTML = "event_busy";
   toDoRemove.addEventListener("click", (e) => todoRemoveEventHandler(e));
   //Skapar p todo-update
   const toDoUpdate = document.createElement("span");
+  toDoUpdate.title = "updatera todo";
   toDoUpdate.classList.add("material-symbols-outlined");
   toDoUpdate.innerHTML = "event_repeat";
 
