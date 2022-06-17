@@ -70,12 +70,7 @@ aside {
 }
 
 .todo-card-left {
-<<<<<<< HEAD
-  /* background-color: #82a0b4; */
-  background-image: linear-gradient(#191a1a, #717777);
-=======
   background-image: var(--aside-background-image);
->>>>>>> 954ae5c85d1165b45f86a8cbace0329489f70b0c
   width: 80%;
   height: 100%;
   float: left;
@@ -90,11 +85,7 @@ aside {
 }
 
 .todo-textarea {
-<<<<<<< HEAD
-  background-image: linear-gradient(#ffffff, #717777);
-=======
   background-image: var(--toDoCardTxtArea-background-image);
->>>>>>> 954ae5c85d1165b45f86a8cbace0329489f70b0c
   color: black;
   font-size: 1rem;
   height: 70%;
@@ -103,12 +94,7 @@ aside {
 }
 
 .todo-card-right {
-<<<<<<< HEAD
-  /* background-color: #60b8f3; */
-  background-image: linear-gradient(#191a1a, #717777);
-=======
   background-image: var(--aside-background-image);
->>>>>>> 954ae5c85d1165b45f86a8cbace0329489f70b0c
   width: 20%;
   height: 100%;
   float: right;
