@@ -67,6 +67,8 @@ function addToDoEventHandler(e) {
   loadedYearRepo[month - 1][day - 1].tasks.push(toDoText);
   saveYear();
   renderMain();
+  openAddToDoMenu = false;
+  renderAside();
 }
 
 function renderAsideTodos(asideContainer) {
@@ -121,7 +123,7 @@ function createToDoCardMarkup(dateString, toDoDescription) {
   //Skapar p todo-remove
 
   const toDoRemove = document.createElement("span");
-  toDoRemove.title = "ta bort todo"
+  toDoRemove.title = "ta bort todo";
   toDoRemove.classList.add("material-symbols-outlined");
   toDoRemove.innerHTML = "event_busy";
   toDoRemove.addEventListener("click", (e) => todoRemoveEventHandler(e));
