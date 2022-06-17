@@ -2,7 +2,7 @@
 
 ### Kravlista
 
-[ ] 1. Skapa layouten enligt skiss (dölj kalender på mobilvy) - (G)
+[X] 1. Skapa layouten enligt skiss (dölj kalender på mobilvy) - (G)
 
 [X] 2. Skapa och designa titeln för verktyget - (G)
 
