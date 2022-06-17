@@ -51,7 +51,7 @@ function addDaysToMonth(monthNumber) {
     day.number = i;
     day.isRed = false;
     day.tasks = [];
-    day.nameDay = "Bob";
+    day.nameDay = "loading...";
     month.push(day);
   }
   return month;
