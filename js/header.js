@@ -23,7 +23,7 @@ export function headerMain() {
   updateClock();
 }
 
-function addZero(i) {
+export function addZero(i) {
   if (i < 10) {
     i = "0" + i;
   }
