@@ -131,3 +131,7 @@ aside {
   color: white;
   cursor: pointer;
 }
+
+.aside-dates {
+display: none;
+}

@@ -46,7 +46,19 @@ function updateClock() {
     addZero(today.getMinutes()) +
     ":" +
     addZero(today.getSeconds());
-
+  document.querySelector(".aside-dates").innerHTML =
+    /* "Dagens datum: " +  */ today.toLocaleDateString("sv-SE", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }) +
+    "  " +
+    addZero(today.getHours()) +
+    ":" +
+    addZero(today.getMinutes()) +
+    ":" +
+    addZero(today.getSeconds());
   setTimeout(updateClock, 1000);
 }
 
