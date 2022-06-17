@@ -1,11 +1,18 @@
 import { loadedYearRepo, selectedDate } from "./globalVariables.js";
 import { getFirstDayInMonth, getLastDayInMonth } from "./fetchRedDaysAPI.js";
-import { saveYear } from "./repository.js"
+import { loadYear, saveYear } from "./repository.js";
 
-let weekDays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
+let weekDays = [
+  "Måndag",
+  "Tisdag",
+  "Onsdag",
+  "Torsdag",
+  "Fredag",
+  "Lördag",
+  "Söndag",
+];
 
 export async function renderMain() {
-
   saveYear();
   const calendarContainer = document.getElementById("calendarContainer");
   calendarContainer.innerHTML = ""; //Remove all markup from calendarContainer
@@ -15,29 +22,41 @@ export async function renderMain() {
   addDummyDaysToEndOfMonth();
 }
 
-async function addDummyDaysToBeginingOfMonth(){
+async function addDummyDaysToBeginingOfMonth() {
   const calendarContainer = document.getElementById("calendarContainer");
-  let day = await getFirstDayInMonth(selectedDate.getMonth(), selectedDate.getFullYear());
+  let day = await getFirstDayInMonth(
+    selectedDate.getMonth(),
+    selectedDate.getFullYear()
+  );
   //console.log("first day of month: " + day);
   let dummyDaysBeforeToAdd = weekDays.indexOf(day);
-  let daysInPreviousMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 0).getDate();
+  let daysInPreviousMonth = new Date(
+    selectedDate.getFullYear(),
+    selectedDate.getMonth(),
+    0
+  ).getDate();
   for (let i = dummyDaysBeforeToAdd; i > 0; i--) {
-    const dayCard = createDummyDayCardMarkup(daysInPreviousMonth -i);
+    const dayCard = createDummyDayCardMarkup(daysInPreviousMonth - i);
     calendarContainer.appendChild(dayCard);
   }
 }
 
-function addDaysToMonth(){
+function addDaysToMonth() {
   const calendarContainer = document.getElementById("calendarContainer");
   for (let i = 0; i < loadedYearRepo[selectedDate.getMonth()].length; i++) {
     const dayCard = createDayCardMarkup(selectedDate.getMonth(), i);
-    dayCard.addEventListener("click", () => dayClickedEventHandler(selectedDate.getMonth(), i));
+    dayCard.addEventListener("click", () =>
+      dayClickedEventHandler(selectedDate.getMonth(), i)
+    );
     calendarContainer.appendChild(dayCard);
   }
 }
 
-async function addDummyDaysToEndOfMonth(){
-  let day = await getLastDayInMonth(selectedDate.getMonth(), selectedDate.getFullYear());
+async function addDummyDaysToEndOfMonth() {
+  let day = await getLastDayInMonth(
+    selectedDate.getMonth(),
+    selectedDate.getFullYear()
+  );
   let dummyDaysAfterToAdd = 6 - weekDays.indexOf(day);
 
   for (let i = 0; i < dummyDaysAfterToAdd; i++) {
@@ -47,7 +66,8 @@ async function addDummyDaysToEndOfMonth(){
 }
 
 function dayClickedEventHandler(monthNumber, i, e) {
-  loadedYearRepo[monthNumber][i].isSelected = !loadedYearRepo[monthNumber][i].isSelected;
+  loadedYearRepo[monthNumber][i].isSelected =
+    !loadedYearRepo[monthNumber][i].isSelected;
   renderMain();
   //Denna metod kommer ta fram dag som användare klickat på, och skicka denna info vidare genom att anropa en metod i aside, tex selectedDay(dayNumber)
 }
@@ -88,8 +108,8 @@ function createDayCardMarkup(monthNumber, dayNumber) {
   return dayCard;
 }
 
-function createDummyDayCardMarkup(dayNumber){
-    //Skapar div day-card
+function createDummyDayCardMarkup(dayNumber) {
+  //Skapar div day-card
   const dayCard = document.createElement("div");
   dayCard.classList.add("day-card");
   dayCard.classList.add("day-card-isDummy");
