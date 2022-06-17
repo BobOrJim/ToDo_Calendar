@@ -1,4 +1,5 @@
-.days-header {
+.days-header,
+.days-header-short {
   display: none;
 }
 
