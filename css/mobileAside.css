@@ -1,11 +1,11 @@
 aside {
-  background-image: linear-gradient(#191a1a, #717777);
+  background-image: var(--aside-background-image);
   flex-direction: column;
   border-right: 1px solid #dddddd;
   width: 100%;
   position: fixed;
 
-  top: calc(var(--header-height));
+  top: 0;
   bottom: 0;
   left: 0;
   text-align: center;
@@ -15,7 +15,50 @@ aside {
 }
 
 .todo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.temporary{ /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
+  background-color: aliceblue;
+  font-size: 3rem;
+  float : right;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.datepicker{
+  margin-top: 30px;
+  font-size: 1.75rem;
+  cursor: pointer;
+  width: 80%;
+}
+
+.add-todo-textarea{
+  margin-top: 20px;
+  background-image: linear-gradient(#ffffff, #717777);
+  color: black;
+  font-size: 1rem;
+  height: 200px;
+  width: 80%;
+  resize: none;
+}
+
+.add-todo-button{
+  margin-top: 20px;
+  background-image: linear-gradient(#ffffff, #717777);
+  color: black;
+  font-size: 1rem;
+  height: 50px;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+}
+
+
 
 .todo-card {
   display: block;
@@ -26,23 +69,23 @@ aside {
   margin-bottom: 10px;
 }
 
-.todo-card-left{
-  background-color: #82a0b4;
+.todo-card-left {
+  background-image: var(--aside-background-image);
   width: 80%;
   height: 100%;
   float: left;
 }
 
-.todo-date{
-  background-color: #8f5b0e;
+.todo-date {
+  /* background-color: #8f5b0e; */
   float: top;
   color: white;
   font-size: 0.8rem;
   margin-bottom: 7px;
 }
 
-.todo-textarea{
-  background-color: #f8a527;
+.todo-textarea {
+  background-image: var(--toDoCardTxtArea-background-image);
   color: black;
   font-size: 1rem;
   height: 70%;
@@ -50,27 +93,27 @@ aside {
   resize: none;
 }
 
-.todo-card-right{
-  background-color: #60b8f3;
+.todo-card-right {
+  background-image: var(--aside-background-image);
   width: 20%;
   height: 100%;
   float: right;
 }
 
-.todo-remove{
+.todo-remove {
   display: inline-block;
   border: 2px solid black;
-  background-color: #ff0000;
+  /* background-color: #ff0000; */
   color: white;
   font-size: 1.5rem;
-  padding: 5px;
-  border-radius: 50%;
+  padding: 3px;
+  /* border-radius: 100%; */
   cursor: pointer;
   margin-top: 7px;
   margin-bottom: 7px;
 }
 
-.todo-update{
+.todo-update {
   display: inline-block;
   border: 2px solid black;
   background-color: #0d9b19;
@@ -79,5 +122,17 @@ aside {
   padding: 5px;
   border-radius: 50%;
   cursor: pointer;
+}
 
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  color: white;
+  cursor: pointer;
+}
+
+.aside-dates {
+margin: 1rem 0 1rem 0;
+  width: 100%;
+  font-size: 2rem;
+  color: white;
 }

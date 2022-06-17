@@ -1,5 +1,5 @@
 aside {
-  background-image: linear-gradient(#191a1a, #717777);
+  background-image: var(--aside-background-image);
   flex-direction: column;
   border-right: 1px solid #dddddd;
   min-width: var(--sidebar-width);
@@ -20,26 +20,27 @@ aside {
   align-items: center;
 }
 
-.temporary{ /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
+.temporary {
+  /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
   background-color: aliceblue;
   font-size: 3rem;
-  float : right;
+  float: right;
   margin-right: 1rem;
   margin-top: 1rem;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.datepicker{
+.datepicker {
   margin-top: 30px;
   font-size: 1.75rem;
   cursor: pointer;
   width: 80%;
 }
 
-.add-todo-textarea{
+.add-todo-textarea {
   margin-top: 20px;
-  background-image: linear-gradient(#ffffff, #717777);
+  background-image: var(--toDoCardTxtArea-background-image);
   color: black;
   font-size: 1rem;
   height: 200px;
@@ -47,9 +48,9 @@ aside {
   resize: none;
 }
 
-.add-todo-button{
+.add-todo-button {
   margin-top: 20px;
-  background-image: linear-gradient(#ffffff, #717777);
+  background-image: var(--toDoCardTxtArea-background-image);
   color: black;
   font-size: 1rem;
   height: 50px;
@@ -57,8 +58,6 @@ aside {
   border-radius: 5px;
   border: 1px solid #dddddd;
 }
-
-
 
 .todo-card {
   display: block;
@@ -71,7 +70,7 @@ aside {
 
 .todo-card-left {
   /* background-color: #82a0b4; */
-  background-image: linear-gradient(#191a1a, #717777);
+  background-image: var(--aside-background-image);
   width: 80%;
   height: 100%;
   float: left;
@@ -86,7 +85,7 @@ aside {
 }
 
 .todo-textarea {
-  background-image: linear-gradient(#ffffff, #717777);
+  background-image: var(--toDoCardTxtArea-background-image);
   color: black;
   font-size: 1rem;
   height: 70%;
@@ -96,7 +95,7 @@ aside {
 
 .todo-card-right {
   /* background-color: #60b8f3; */
-  background-image: linear-gradient(#191a1a, #717777);
+  background-image: var(--aside-background-image);
   width: 20%;
   height: 100%;
   float: right;
@@ -130,4 +129,8 @@ aside {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
   color: white;
   cursor: pointer;
+}
+
+.aside-dates {
+display: none;
 }
