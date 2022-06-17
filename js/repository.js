@@ -6,10 +6,12 @@ import { renderMain } from "./main.js";
 export function loadYear() {
   let stuff = JSON.parse(localStorage.getItem(selectedDate.getFullYear()));
   if (stuff === null) {
+    loadedYearRepo.length = 0;
     buildYear();
     seedYear();
   } else {
     let data = JSON.parse(localStorage.getItem(selectedDate.getFullYear()));
+    loadedYearRepo.length = 0;
     loadedYearRepo.push(...data);
   }
 }
@@ -39,7 +41,11 @@ function buildYear() {
 
 function addDaysToMonth(monthNumber) {
   let month = [];
-  for (let i = 1; i <= new Date(selectedDate.getFullYear(), monthNumber, 0).getDate(); i++) {
+  for (
+    let i = 1;
+    i <= new Date(selectedDate.getFullYear(), monthNumber, 0).getDate();
+    i++
+  ) {
     //console.log(selectedDate.getFullYear(), monthNumber, i);
     var day = new Day();
     day.number = i;
@@ -53,13 +59,15 @@ function addDaysToMonth(monthNumber) {
 
 async function seedYear() {
   console.log("running seedYear()");
-  loadedYearRepo[5][1].tasks.push("Buy soda");
-  loadedYearRepo[5][10].tasks.push("Buy beer");
-  loadedYearRepo[5][11].tasks.push("Buy milk");
-  loadedYearRepo[5][11].tasks.push("Buy bread");
-  loadedYearRepo[5][11].tasks.push("Buy cheese");
-  loadedYearRepo[5][22].tasks.push("Buy butter");
-  loadedYearRepo[5][22].tasks.push("Buy eggs");
+  if (selectedDate.getFullYear() === 2022) {
+    loadedYearRepo[5][1].tasks.push("Buy soda");
+    loadedYearRepo[5][10].tasks.push("Buy beer");
+    loadedYearRepo[5][11].tasks.push("Buy milk");
+    loadedYearRepo[5][11].tasks.push("Buy bread");
+    loadedYearRepo[5][11].tasks.push("Buy cheese");
+    loadedYearRepo[5][22].tasks.push("Buy butter");
+    loadedYearRepo[5][22].tasks.push("Buy eggs");
+  }
 
   await changeRedDays(selectedDate.getFullYear());
   await addNameDay(selectedDate.getFullYear());

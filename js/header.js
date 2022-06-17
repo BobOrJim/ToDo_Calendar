@@ -1,5 +1,6 @@
 import { renderMain } from "./main.js";
 import { selectedDate } from "./globalVariables.js";
+import { loadYear } from "./repository.js";
 
 // import { months } from "./repository.js";
 
@@ -66,24 +67,28 @@ function addEventListeners() {
   document.querySelector(".prev-month").addEventListener("click", () => {
     selectedDate.setMonth(selectedDate.getMonth() - 1);
     renderHeader(selectedDate);
+    loadYear();
     renderMain();
   });
 
   document.querySelector(".next-month").addEventListener("click", () => {
     selectedDate.setMonth(selectedDate.getMonth() + 1);
     renderHeader(selectedDate);
+    loadYear();
     renderMain();
   });
 
   document.querySelector(".prev-year").addEventListener("click", () => {
     selectedDate.setFullYear(selectedDate.getFullYear() - 1);
     renderHeader(selectedDate);
+    loadYear();
     renderMain();
   });
 
   document.querySelector(".next-year").addEventListener("click", () => {
     selectedDate.setFullYear(selectedDate.getFullYear() + 1);
     renderHeader(selectedDate);
+    loadYear();
     renderMain();
   });
 }
