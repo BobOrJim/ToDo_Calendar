@@ -69,10 +69,9 @@ main {
 
 .day-card-tasks {
   text-align: center;
-  margin-top: 0px;
-  font-size: 1.5rem;
+  margin-bottom: 2px;
+  font-size: 1.5rpxem;
   color: white;
-  //border-radius: 50%;
   background-color: black;
 }
 

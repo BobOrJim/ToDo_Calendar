@@ -14,6 +14,11 @@ header {
   color: var(--headerTxt-color);
 }
 
+.header-weather {
+  margin-top: 1.5rem;
+  margin-left: 4rem;
+}
+
 header div {
   width: 100%;
 }
@@ -45,4 +50,10 @@ header i {
 .header-dates div {
   width: 15rem;
   justify-content: space-between;
+}
+
+@media (max-width: 999px) {
+  .header-weather {
+  display: none;
+}
 }
