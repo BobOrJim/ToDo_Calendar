@@ -12,6 +12,19 @@ export function initAside() {
     openAddToDoMenu = !openAddToDoMenu;
     renderAside();
   });
+
+  //Remove all selected days in main
+  const temporaryIcon2 = document.querySelector(".temporary2");
+  temporaryIcon2.addEventListener("click", (e) => {
+    for (let monthNumber = 0; monthNumber < loadedYearRepo.length; monthNumber++ ) {
+      for (let dayNumber = 0; dayNumber < loadedYearRepo[monthNumber].length; dayNumber++) {
+        loadedYearRepo[monthNumber][dayNumber].isSelected = false;
+      }
+    }
+    renderMain();
+    renderAside();
+  });
+
 }
 
 export function renderAside() {
@@ -72,31 +85,15 @@ function addToDoEventHandler(e) {
 }
 
 function renderAsideTodos(asideContainer) {
-  for (
-    let monthNumber = 0;
-    monthNumber < loadedYearRepo.length;
-    monthNumber++
-  ) {
-    for (
-      let dayNumber = 0;
-      dayNumber < loadedYearRepo[monthNumber].length;
-      dayNumber++
-    ) {
-      for (
-        let toDoNumber = 0;
-        toDoNumber < loadedYearRepo[monthNumber][dayNumber].tasks.length;
-        toDoNumber++
-      ) {
-        let dateString =
-          selectedDate.getFullYear() +
-          "-" +
-          addZero(monthNumber + 1) +
-          "-" +
-          addZero(dayNumber + 1);
-        let toDoDescription =
-          loadedYearRepo[monthNumber][dayNumber].tasks[toDoNumber];
-        let test = createToDoCardMarkup(dateString, toDoDescription);
-        asideContainer.appendChild(test);
+  for (let monthNumber = 0; monthNumber < loadedYearRepo.length; monthNumber++ ) {
+    for (let dayNumber = 0; dayNumber < loadedYearRepo[monthNumber].length; dayNumber++) {
+      for (let toDoNumber = 0; toDoNumber < loadedYearRepo[monthNumber][dayNumber].tasks.length; toDoNumber++ ) {
+        if (loadedYearRepo[monthNumber][dayNumber].isSelected) {
+          let dateString = selectedDate.getFullYear() + "-" + addZero(monthNumber + 1) + "-" + addZero(dayNumber + 1);
+          let toDoDescription = loadedYearRepo[monthNumber][dayNumber].tasks[toDoNumber];
+          let test = createToDoCardMarkup(dateString, toDoDescription);
+          asideContainer.appendChild(test);
+        }
       }
     }
   }

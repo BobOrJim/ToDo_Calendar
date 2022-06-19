@@ -1,6 +1,7 @@
 import { loadedYearRepo, selectedDate } from "./globalVariables.js";
 import { getFirstDayInMonth, getLastDayInMonth } from "./fetchRedDaysAPI.js";
 import { loadYear, saveYear } from "./repository.js";
+import { renderAside } from "./aside.js";
 
 let weekDays = [
   "Måndag",
@@ -69,6 +70,7 @@ function dayClickedEventHandler(monthNumber, i, e) {
   loadedYearRepo[monthNumber][i].isSelected =
     !loadedYearRepo[monthNumber][i].isSelected;
   renderMain();
+  renderAside();
   //Denna metod kommer ta fram dag som användare klickat på, och skicka denna info vidare genom att anropa en metod i aside, tex selectedDay(dayNumber)
 }
 
