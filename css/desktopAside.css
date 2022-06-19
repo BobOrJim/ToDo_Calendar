@@ -31,6 +31,17 @@ aside {
   cursor: pointer;
 }
 
+.temporary2 {
+  /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
+  background-color: aliceblue;
+  font-size: 3rem;
+  float: right;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .datepicker {
   margin-top: 30px;
   font-size: 1.75rem;
