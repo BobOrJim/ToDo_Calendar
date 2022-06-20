@@ -34,45 +34,25 @@ export function addZero(i) {
 function updateClock() {
   var today = new Date()
 
-<<<<<<< HEAD
-  document.querySelector('.header-dates p').innerHTML =
+  document.querySelector('.header-dates p').innerText =
     /* "Dagens datum: " +  */ today.toLocaleDateString('sv-SE', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
       day: 'numeric',
-=======
-  document.querySelector(".header-dates p").innerText =
-    /* "Dagens datum: " +  */ today.toLocaleDateString("sv-SE", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
->>>>>>> 523d0f3fa12adf80d68e61f329e1c9d4fd708d9a
     }) +
     ' - ' +
     addZero(today.getHours()) +
     ':' +
     addZero(today.getMinutes()) +
-<<<<<<< HEAD
     ':' +
     addZero(today.getSeconds())
-  document.querySelector('.aside-dates').innerHTML =
+  document.querySelector('.aside-dates').innerText =
     /* "Dagens datum: " +  */ today.toLocaleDateString('sv-SE', {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
       day: 'numeric',
-=======
-    ":" +
-    addZero(today.getSeconds());
-  document.querySelector(".aside-dates").innerText =
-    /* "Dagens datum: " +  */ today.toLocaleDateString("sv-SE", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
->>>>>>> 523d0f3fa12adf80d68e61f329e1c9d4fd708d9a
     }) +
     '  ' +
     addZero(today.getHours()) +
@@ -84,17 +64,10 @@ function updateClock() {
 }
 
 export function renderHeader(selectedDate) {
-<<<<<<< HEAD
-  document.getElementById('header-month').innerHTML =
+  document.getElementById('header-month').innerText =
     months[selectedDate.getMonth()]
 
-  document.getElementById('header-year').innerHTML = selectedDate.getFullYear()
-=======
-  document.getElementById("header-month").innerText =
-    months[selectedDate.getMonth()];
-
-  document.getElementById("header-year").innerText = selectedDate.getFullYear();
->>>>>>> 523d0f3fa12adf80d68e61f329e1c9d4fd708d9a
+  document.getElementById('header-year').innerText = selectedDate.getFullYear()
 }
 
 function addHeaderEventListeners() {
