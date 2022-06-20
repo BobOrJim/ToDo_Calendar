@@ -24,4 +24,4 @@
 
 [X] 11. Svenska helgdagar visas i kalendern - (VG)
 
-[ ] 12. Filtrera todolistan utifrån vald dag i kalendern, det ska gå avmarkera vald dag (VG)
+[X] 12. Filtrera todolistan utifrån vald dag i kalendern, det ska gå avmarkera vald dag (VG)
