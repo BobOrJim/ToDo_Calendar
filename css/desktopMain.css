@@ -48,6 +48,11 @@ main {
   cursor: pointer;
 }
 
+.day-card:hover {
+  background-image: none;
+  background-color: #ffffff;
+}
+
 .day-card-text {
   text-align: center;
   margin-top: 10px;
@@ -69,16 +74,15 @@ main {
 
 .day-card-tasks {
   text-align: center;
-  margin-top: 0px;
-  font-size: 1.5rem;
+  margin-bottom: 2px;
+  font-size: 1.5rpxem;
   color: white;
-  border-radius: 50%;
   background-color: black;
 }
 
 .day-card-isSelected {
-  background-color: rgb(239, 239, 13);
-  background-image: none;
+  background-image: var(--toDoCardTxtArea-background-image);
+  border: 3px solid rgb(255, 0, 0);
 }
 
 .day-card-isDummy {
@@ -117,6 +121,10 @@ main {
   .day-card-isDummy-text {
     font-size: 1rem;
     margin-top: 1rem;
+  }
+  
+  .day-card-tasks {
+    font-size: 1rem;
   }
 }
 

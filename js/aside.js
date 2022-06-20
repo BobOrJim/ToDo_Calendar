@@ -12,6 +12,19 @@ export function initAside() {
     openAddToDoMenu = !openAddToDoMenu;
     renderAside();
   });
+
+  //Remove all selected days in main
+  const temporaryIcon2 = document.querySelector(".temporary2");
+  temporaryIcon2.addEventListener("click", (e) => {
+    for (let monthNumber = 0; monthNumber < loadedYearRepo.length; monthNumber++ ) {
+      for (let dayNumber = 0; dayNumber < loadedYearRepo[monthNumber].length; dayNumber++) {
+        loadedYearRepo[monthNumber][dayNumber].isSelected = false;
+      }
+    }
+    renderMain();
+    renderAside();
+  });
+
 }
 
 export function renderAside() {
@@ -67,9 +80,12 @@ function addToDoEventHandler(e) {
   loadedYearRepo[month - 1][day - 1].tasks.push(toDoText);
   saveYear();
   renderMain();
+  openAddToDoMenu = false;
+  renderAside();
 }
 
 function renderAsideTodos(asideContainer) {
+  var selected = false;
   for (
     let monthNumber = 0;
     monthNumber < loadedYearRepo.length;
@@ -85,16 +101,50 @@ function renderAsideTodos(asideContainer) {
         toDoNumber < loadedYearRepo[monthNumber][dayNumber].tasks.length;
         toDoNumber++
       ) {
-        let dateString =
-          selectedDate.getFullYear() +
-          "-" +
-          addZero(monthNumber + 1) +
-          "-" +
-          addZero(dayNumber + 1);
-        let toDoDescription =
-          loadedYearRepo[monthNumber][dayNumber].tasks[toDoNumber];
-        let test = createToDoCardMarkup(dateString, toDoDescription);
-        asideContainer.appendChild(test);
+        if (loadedYearRepo[monthNumber][dayNumber].isSelected) {
+          selected = true;
+          console.log(selected);
+          let dateString =
+            selectedDate.getFullYear() +
+            "-" +
+            addZero(monthNumber + 1) +
+            "-" +
+            addZero(dayNumber + 1);
+          let toDoDescription =
+            loadedYearRepo[monthNumber][dayNumber].tasks[toDoNumber];
+          let test = createToDoCardMarkup(dateString, toDoDescription);
+          asideContainer.appendChild(test);
+        }
+      }
+    }
+  }
+  if (!selected) {
+    for (
+      let monthNumber = 0;
+      monthNumber < loadedYearRepo.length;
+      monthNumber++
+    ) {
+      for (
+        let dayNumber = 0;
+        dayNumber < loadedYearRepo[monthNumber].length;
+        dayNumber++
+      ) {
+        for (
+          let toDoNumber = 0;
+          toDoNumber < loadedYearRepo[monthNumber][dayNumber].tasks.length;
+          toDoNumber++
+        ) {
+          let dateString =
+            selectedDate.getFullYear() +
+            "-" +
+            addZero(monthNumber + 1) +
+            "-" +
+            addZero(dayNumber + 1);
+          let toDoDescription =
+            loadedYearRepo[monthNumber][dayNumber].tasks[toDoNumber];
+          let test = createToDoCardMarkup(dateString, toDoDescription);
+          asideContainer.appendChild(test);
+        }
       }
     }
   }
@@ -121,11 +171,13 @@ function createToDoCardMarkup(dateString, toDoDescription) {
   //Skapar p todo-remove
 
   const toDoRemove = document.createElement("span");
+  toDoRemove.title = "ta bort todo";
   toDoRemove.classList.add("material-symbols-outlined");
   toDoRemove.innerHTML = "event_busy";
   toDoRemove.addEventListener("click", (e) => todoRemoveEventHandler(e));
   //Skapar p todo-update
   const toDoUpdate = document.createElement("span");
+  toDoUpdate.title = "updatera todo";
   toDoUpdate.classList.add("material-symbols-outlined");
   toDoUpdate.innerHTML = "event_repeat";
 

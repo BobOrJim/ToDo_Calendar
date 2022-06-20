@@ -2,7 +2,7 @@
 
 ### Kravlista
 
-[ ] 1. Skapa layouten enligt skiss (dölj kalender på mobilvy) - (G)
+[X] 1. Skapa layouten enligt skiss (dölj kalender på mobilvy) - (G)
 
 [X] 2. Skapa och designa titeln för verktyget - (G)
 
@@ -24,4 +24,4 @@
 
 [X] 11. Svenska helgdagar visas i kalendern - (VG)
 
-[ ] 12. Filtrera todolistan utifrån vald dag i kalendern, det ska gå avmarkera vald dag (VG)
+[X] 12. Filtrera todolistan utifrån vald dag i kalendern, det ska gå avmarkera vald dag (VG)

@@ -14,30 +14,35 @@ aside {
   overflow-x: auto;
 }
 
+aside i {
+  display: none;
+}
+
 .todo-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.temporary{ /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
+.temporary {
+  /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
   background-color: aliceblue;
   font-size: 3rem;
-  float : right;
+  float: right;
   margin-right: 1rem;
   margin-top: 1rem;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.datepicker{
+.datepicker {
   margin-top: 30px;
   font-size: 1.75rem;
   cursor: pointer;
   width: 80%;
 }
 
-.add-todo-textarea{
+.add-todo-textarea {
   margin-top: 20px;
   background-image: linear-gradient(#ffffff, #717777);
   color: black;
@@ -47,7 +52,7 @@ aside {
   resize: none;
 }
 
-.add-todo-button{
+.add-todo-button {
   margin-top: 20px;
   background-image: linear-gradient(#ffffff, #717777);
   color: black;
@@ -57,8 +62,6 @@ aside {
   border-radius: 5px;
   border: 1px solid #dddddd;
 }
-
-
 
 .todo-card {
   display: block;
@@ -131,7 +134,7 @@ aside {
 }
 
 .aside-dates {
-margin: 1rem 0 1rem 0;
+  margin: 1rem 0 1rem 0;
   width: 100%;
   font-size: 2rem;
   color: white;
