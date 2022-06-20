@@ -16,7 +16,7 @@ let weekDays = [
 export async function renderMain() {
   saveYear();
   const calendarContainer = document.getElementById("calendarContainer");
-  calendarContainer.innerHTML = ""; //Remove all markup from calendarContainer
+  calendarContainer.innerText = ""; //Remove all markup from calendarContainer
 
   await addDummyDaysToBeginingOfMonth();
   addDaysToMonth();
@@ -89,13 +89,13 @@ function createDayCardMarkup(monthNumber, dayNumber) {
   const dayCardNameDay = document.createElement("p");
   dayCardNameDay.classList.add("day-card-nameDay");
   const nameDay = loadedYearRepo[monthNumber][dayNumber].nameDay;
-  dayCardNameDay.innerHTML = nameDay;
+  dayCardNameDay.innerText = nameDay;
   dayCard.appendChild(dayCardNameDay);
 
   //Skapar p day-card-text
   const dayCardText = document.createElement("p");
   dayCardText.classList.add("day-card-text");
-  dayCardText.innerHTML = dayNumber + 1;
+  dayCardText.innerText = dayNumber + 1;
   dayCard.appendChild(dayCardText);
 
   //Skapar p day-card-tasks
@@ -103,7 +103,7 @@ function createDayCardMarkup(monthNumber, dayNumber) {
   dayCardTasks.classList.add("day-card-tasks");
   const numberOfTasks = loadedYearRepo[monthNumber][dayNumber].tasks.length;
   if (numberOfTasks > 0) {
-    dayCardTasks.innerHTML = numberOfTasks;
+    dayCardTasks.innerText = numberOfTasks;
     dayCard.appendChild(dayCardTasks);
   }
 
@@ -116,18 +116,17 @@ function createDummyDayCardMarkup(dayNumber) {
   dayCard.classList.add("day-card");
   dayCard.classList.add("day-card-isDummy");
 
-
   //Skapar p day-card-text
   const dayCardText = document.createElement("p");
-  if(dayCard.classList.contains("day-card-isDummy")){
+  if (dayCard.classList.contains("day-card-isDummy")) {
     dayCardText.classList.add("day-card-isDummy-text");
-    dayCardText.innerHTML = dayNumber + 1;
+    dayCardText.innerText = dayNumber + 1;
+    dayCard.appendChild(dayCardText);
+    return dayCard;
+  } else {
+    dayCardText.classList.add("day-card-text");
+    dayCardText.innerText = dayNumber + 1;
     dayCard.appendChild(dayCardText);
     return dayCard;
   }
-  else {dayCardText.classList.add("day-card-text");
-  dayCardText.innerHTML = dayNumber + 1;
-  dayCard.appendChild(dayCardText);
-  return dayCard;
-}
 }

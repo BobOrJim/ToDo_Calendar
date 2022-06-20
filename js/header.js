@@ -33,7 +33,7 @@ export function addZero(i) {
 function updateClock() {
   var today = new Date();
 
-  document.querySelector(".header-dates p").innerHTML =
+  document.querySelector(".header-dates p").innerText =
     /* "Dagens datum: " +  */ today.toLocaleDateString("sv-SE", {
       weekday: "long",
       year: "numeric",
@@ -46,7 +46,7 @@ function updateClock() {
     addZero(today.getMinutes()) +
     ":" +
     addZero(today.getSeconds());
-  document.querySelector(".aside-dates").innerHTML =
+  document.querySelector(".aside-dates").innerText =
     /* "Dagens datum: " +  */ today.toLocaleDateString("sv-SE", {
       weekday: "long",
       year: "numeric",
@@ -63,10 +63,10 @@ function updateClock() {
 }
 
 export function renderHeader(selectedDate) {
-  document.getElementById("header-month").innerHTML =
+  document.getElementById("header-month").innerText =
     months[selectedDate.getMonth()];
 
-  document.getElementById("header-year").innerHTML = selectedDate.getFullYear();
+  document.getElementById("header-year").innerText = selectedDate.getFullYear();
 }
 
 function addHeaderEventListeners() {
