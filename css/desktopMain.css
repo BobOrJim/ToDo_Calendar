@@ -116,6 +116,7 @@ main {
   .day-card-text,
   .day-card-isDummy-text {
     font-size: 1rem;
+    margin-top: 1rem;
   }
 }
 
