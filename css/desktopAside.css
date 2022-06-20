@@ -22,7 +22,7 @@ aside {
 
 .temporary {
   /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   font-size: 3rem;
   float: right;
   margin-right: 1rem;
@@ -33,7 +33,7 @@ aside {
 
 .temporary2 {
   /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   font-size: 3rem;
   float: right;
   margin-right: 1rem;
