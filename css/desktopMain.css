@@ -48,6 +48,11 @@ main {
   cursor: pointer;
 }
 
+.day-card:hover {
+  background-image: none;
+  background-color: #ffffff;
+}
+
 .day-card-text {
   text-align: center;
   margin-top: 10px;
@@ -113,8 +118,8 @@ main {
   }
 
   .day-card-tasks {
-  font-size: 1rem;
-}
+    font-size: 1rem;
+  }
 
   .day-card-text {
     font-size: 1rem;
