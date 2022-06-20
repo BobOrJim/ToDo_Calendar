@@ -49,6 +49,13 @@ aside {
   width: 80%;
 }
 
+.datepicker-small {
+  float: top;
+  color: black;
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+
 .add-todo-textarea {
   margin-top: 20px;
   background-image: var(--toDoCardTxtArea-background-image);
@@ -80,7 +87,6 @@ aside {
 }
 
 .todo-card-left {
-  /* background-color: #82a0b4; */
   background-image: var(--aside-background-image);
   width: 80%;
   height: 100%;
@@ -89,9 +95,10 @@ aside {
 
 .todo-date {
   /* background-color: #8f5b0e; */
+
   float: top;
   color: white;
-  font-size: 0.8rem;
+  font-size: 0rem; /******************* */
   margin-bottom: 7px;
 }
 
