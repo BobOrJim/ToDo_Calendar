@@ -1,5 +1,8 @@
 # ToDo_Calendar
 
+Vi har valt att använda oss av API't från https://sholiday.faboul.se/dagar/v2.1/ då det först var en del av kravet.
+Mest då för att det passade bäst in med kalendern att göra.
+
 ### Kravlista
 
 [X] 1. Skapa layouten enligt skiss (dölj kalender på mobilvy) - (G)
