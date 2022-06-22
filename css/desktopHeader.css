@@ -44,7 +44,7 @@ header i {
 }
 
 .header-dates h2 {
-  text-shadow: 0 0 0.3rem var(--headerTxt-color);
+  text-shadow: 0 0 0.2rem var(--headerTxt-color);
 }
 
 .header-dates div {
@@ -54,6 +54,6 @@ header i {
 
 @media (max-width: 999px) {
   .header-weather {
-  display: none;
-}
+    display: none;
+  }
 }
