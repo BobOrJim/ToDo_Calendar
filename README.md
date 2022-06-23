@@ -1,7 +1,15 @@
 # ToDo_Calendar
 
+Medverkande:
+* Jimmy Nordin
+* Alann André
+* Fredrik Gröndahl
+* Tom Klenfelt
+
 Vi har valt att använda oss av API't från https://sholiday.faboul.se/dagar/v2.1/ då det först var en del av kravet.
 Mest för att det passade bäst med kalendern.
+
+Vi har även implementerat API't från https://fr.tutiempo.net/gratuit.htm för att få med lite väderinformation för skojs skull.
 
 ### Kravlista
 
