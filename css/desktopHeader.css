@@ -8,8 +8,6 @@ header {
   padding-left: 5rem;
   height: var(--header-height);
   display: flex;
-  /*  align-items: normal;*/
-  /* justify-content: space-between; */
   z-index: 100;
   color: var(--headerTxt-color);
 }

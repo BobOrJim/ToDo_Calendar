@@ -80,7 +80,6 @@ aside i {
 }
 
 .todo-date {
-  /* background-color: #8f5b0e; */
   float: top;
   color: white;
   font-size: 0rem;
@@ -106,11 +105,9 @@ aside i {
 .todo-remove {
   display: inline-block;
   border: 2px solid black;
-  /* background-color: #ff0000; */
   color: white;
   font-size: 1.5rem;
   padding: 3px;
-  /* border-radius: 100%; */
   cursor: pointer;
   margin-top: 7px;
   margin-bottom: 7px;

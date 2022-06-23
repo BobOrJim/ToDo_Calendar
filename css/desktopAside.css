@@ -22,7 +22,6 @@ aside {
 
 .temporary {
   /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
-  /* background-color: aliceblue; */
   font-size: 3rem;
   float: right;
   margin-right: 1rem;
@@ -33,7 +32,6 @@ aside {
 
 .temporary2 {
   /* Skall tas bort när vi ersätter med p tag med en icon, just nu träffar den plus knappen */
-  /* background-color: aliceblue; */
   font-size: 3rem;
   float: right;
   margin-right: 1rem;
@@ -94,8 +92,6 @@ aside {
 }
 
 .todo-date {
-  /* background-color: #8f5b0e; */
-
   float: top;
   color: white;
   font-size: 0rem; /******************* */
@@ -112,7 +108,6 @@ aside {
 }
 
 .todo-card-right {
-  /* background-color: #60b8f3; */
   background-image: var(--aside-background-image);
   width: 20%;
   height: 100%;
@@ -122,11 +117,9 @@ aside {
 .todo-remove {
   display: inline-block;
   border: 2px solid black;
-  /* background-color: #ff0000; */
   color: white;
   font-size: 1.5rem;
   padding: 3px;
-  /* border-radius: 100%; */
   cursor: pointer;
   margin-top: 7px;
   margin-bottom: 7px;

@@ -23,7 +23,6 @@ main {
   margin-top: calc(var(--header-height) + var(--sub-header-height));
   margin-left: var(--sidebar-width);
   background-image: var(--aside-background-image);
-  /* border-top: 1px solid rgba(0, 0, 0, 0.05); */
 }
 
 .day-card-wrapper {
@@ -31,7 +30,6 @@ main {
   column-gap: 26px;
   row-gap: 8px;
   justify-items: center;
-  /* background-image: var(--aside-background-image); */
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
@@ -128,66 +126,3 @@ main {
     font-size: 1rem;
   }
 }
-
-/*
-.video-card-top {
-  margin-bottom: 8px;
-  position: relative;
-}
-.thumbnail-img {
-  width: 100%;
-}
-.video-time {
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 4px 4px 4px; 
-  border-radius: 2px;
-  background-color: black;
-  color: white;
-  position: absolute;
-  bottom: 6px;
-  right: 6px;
-}
-
-.video-card-bottom {
-  width: 100%;
-  height: 112px;
-  background-color: #ffffff;
-
-  display: grid;
-  grid-template-columns: 50px 1fr;
-}
-
-.profile-img {
-  width: 36px;
-  border-radius: 50%;
-}
-
-.video-card-bottom-right {
-}
-
-.video-info-div {
-  display: inline-block;
-}
-.video-title {
-  margin-top: 0px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  margin-bottom: 10px;
-}
-.video-author,
-.video-stats {
-  font-size: 12px;
-  color: rgb(96, 96, 96);
-}
-.check_circle {
-  font-size: 13px;
-  color: rgb(96, 96, 96);
-}
-.video-author {
-  margin-bottom: 4px;
-  display: inline;
-}
-
-*/
