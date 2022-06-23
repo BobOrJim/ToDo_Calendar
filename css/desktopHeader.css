@@ -54,6 +54,6 @@ header i {
 
 @media (max-width: 999px) {
   .header-weather {
-  display: none;
-}
+    display: none;
+  }
 }

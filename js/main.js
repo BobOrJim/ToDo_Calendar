@@ -29,13 +29,14 @@ async function addDummyDaysToBeginingOfMonth() {
     selectedDate.getMonth(),
     selectedDate.getFullYear()
   );
-  //console.log("first day of month: " + day);
+
   let dummyDaysBeforeToAdd = weekDays.indexOf(day);
   let daysInPreviousMonth = new Date(
     selectedDate.getFullYear(),
     selectedDate.getMonth(),
     0
   ).getDate();
+
   for (let i = dummyDaysBeforeToAdd; i > 0; i--) {
     const dayCard = createDummyDayCardMarkup(daysInPreviousMonth - i);
     calendarContainer.appendChild(dayCard);
@@ -49,6 +50,7 @@ function addDaysToMonth() {
     dayCard.addEventListener("click", () =>
       dayClickedEventHandler(selectedDate.getMonth(), i)
     );
+
     calendarContainer.appendChild(dayCard);
   }
 }
@@ -58,6 +60,7 @@ async function addDummyDaysToEndOfMonth() {
     selectedDate.getMonth(),
     selectedDate.getFullYear()
   );
+
   let dummyDaysAfterToAdd = 6 - weekDays.indexOf(day);
 
   for (let i = 0; i < dummyDaysAfterToAdd; i++) {
@@ -78,9 +81,11 @@ function createDayCardMarkup(monthNumber, dayNumber) {
   //Skapar div day-card
   const dayCard = document.createElement("div");
   dayCard.classList.add("day-card");
+
   if (loadedYearRepo[monthNumber][dayNumber].isRed) {
     dayCard.classList.add("day-card-idRed");
   }
+
   if (loadedYearRepo[monthNumber][dayNumber].isSelected) {
     dayCard.classList.add("day-card-isSelected");
   }

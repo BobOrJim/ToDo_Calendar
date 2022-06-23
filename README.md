@@ -1,10 +1,13 @@
 # ToDo_Calendar
 
 Medverkande:
-* Jimmy Nordin
-* Alann André
-* Fredrik Gröndahl
-* Tom Klenfelt
+
+- Jimmy Nordin
+- Alann André
+- Fredrik Gröndahl
+- Tom Klenfelt
+
+Länk till GitHub repot: https://github.com/BobOrJim/ToDo_Calendar
 
 Vi har valt att använda oss av API't från https://sholiday.faboul.se/dagar/v2.1/ då det först var en del av kravet.
 Mest för att det passade bäst med kalendern.

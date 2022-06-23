@@ -24,7 +24,6 @@ export function saveYear() {
 }
 
 function buildYear() {
-  console.log("running buildYear()");
   loadedYearRepo.push(addDaysToMonth(1)); //januari
   loadedYearRepo.push(addDaysToMonth(2)); //februari
   loadedYearRepo.push(addDaysToMonth(3)); //mars
@@ -46,7 +45,6 @@ function addDaysToMonth(monthNumber) {
     i <= new Date(selectedDate.getFullYear(), monthNumber, 0).getDate();
     i++
   ) {
-    //console.log(selectedDate.getFullYear(), monthNumber, i);
     var day = new Day();
     day.number = i;
     day.isRed = false;
@@ -58,7 +56,6 @@ function addDaysToMonth(monthNumber) {
 }
 
 async function seedYear() {
-  console.log("running seedYear()");
   if (selectedDate.getFullYear() === 2022) {
     loadedYearRepo[5][1].tasks.push("Buy soda");
     loadedYearRepo[5][10].tasks.push("Buy beer");

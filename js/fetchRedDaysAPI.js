@@ -31,7 +31,6 @@ async function asyncGetDate(date) {
       method: "get",
     });
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -69,7 +68,7 @@ function checkIfRedDay(date, yearData) {
   }
 }
 
-export async function addNameDay(year){
+export async function addNameDay(year) {
   let response = await fetch(apiUrl + year);
   let yearData = await response.json();
 
@@ -84,20 +83,19 @@ export async function addNameDay(year){
       if (dayToCheck.length === 1) dayToCheck = "0" + dayToCheck;
 
       let dateToCheck = year + "-" + monthToCheck + "-" + dayToCheck;
-      loadedYearRepo[m][d].nameDay = getNameDay(dateToCheck,yearData);
+      loadedYearRepo[m][d].nameDay = getNameDay(dateToCheck, yearData);
     }
   }
 }
 
-//console.log(asyncGetYear(2022));
-
-function getNameDay(date,yearData){
+function getNameDay(date, yearData) {
   for (let i = 0; i < yearData.dagar.length; i++) {
-     if (yearData.dagar[i].datum === date) {
-      if (yearData.dagar[i].namnsdag[0] !== undefined) return yearData.dagar[i].namnsdag[0];
+    if (yearData.dagar[i].datum === date) {
+      if (yearData.dagar[i].namnsdag[0] !== undefined)
+        return yearData.dagar[i].namnsdag[0];
       else return yearData.dagar[i].helgdag;
+    }
   }
-}
 }
 
 //Method to check what day of the week is the first day of the month
